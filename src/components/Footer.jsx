@@ -1,4 +1,3 @@
-
 const navigation = {
   Promotions: [
     { name: 'Sales', href: '/Sales' },
@@ -116,7 +115,7 @@ export default function Footer() {
           <div className="mt-10 xl:mt-0">
             <h3 className="text-sm font-semibold leading-6 text-gray-900">Subscribe to our newsletter</h3>
             <p className="mt-2 text-sm leading-6 text-gray-600">
-                For exclusive offers, promotions, and updates on new products and services.
+              For exclusive offers, promotions, and updates on new products and services.
             </p>
             <form className="mt-6 sm:flex sm:max-w-md">
               <label htmlFor="email-address" className="sr-only">
