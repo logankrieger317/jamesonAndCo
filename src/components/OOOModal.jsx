@@ -48,7 +48,7 @@ const OutOfOfficeModal = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Out of Office Notice</h2>
         <p className="mb-6 text-gray-600 leading-relaxed">
-          I will be out of office until February 23rd until March 1st with limited access to phone and email. I will return any inquiries when I return. Please email me at <a href="mailto:info@jcoatx.com" className="text-red-600 hover:text-red-800">info@jcoatx.com</a> if you have any questions or concerns and I will address them as soon as possible. test
+          I will be out of office until February 23rd until March 1st with limited access to phone and email. I will return any inquiries when I return. Please email me at <a href="mailto:info@jcoatx.com" className="text-red-600 hover:text-red-800">info@jcoatx.com</a> if you have any questions or concerns and I will address them as soon as possible.
         </p>
         <button 
           onClick={() => setIsOpen(false)}
