@@ -1,14 +1,73 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import sharp from 'sharp';
+import compression from 'compression';
+import expressStaticGzip from 'express-static-gzip';
+import fs from 'fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
 
-// Serve static files from the React app
-app.use(express.static(join(__dirname, 'dist')));
+// Enable compression
+app.use(compression());
+
+// Cache control middleware
+const cacheControl = (duration) => {
+  return (req, res, next) => {
+    res.set('Cache-Control', `public, max-age=${duration}`);
+    next();
+  };
+};
+
+// Image optimization middleware
+const optimizeImage = async (req, res, next) => {
+  try {
+    const imagePath = join(__dirname, 'src/Images/optimized', req.params.image);
+    const imageBuffer = await fs.readFile(imagePath);
+    
+    // Get image dimensions
+    const metadata = await sharp(imageBuffer).metadata();
+    
+    // Parse query parameters
+    const width = parseInt(req.query.w) || metadata.width;
+    const quality = parseInt(req.query.q) || 80;
+    
+    // Optimize image
+    const optimizedImage = await sharp(imageBuffer)
+      .resize(width, null, { 
+        withoutEnlargement: true,
+        fit: 'inside'
+      })
+      .webp({ quality })
+      .toBuffer();
+
+    // Set response headers
+    res.set('Content-Type', 'image/webp');
+    res.set('Cache-Control', 'public, max-age=31536000'); // Cache for 1 year
+    res.set('Last-Modified', (new Date()).toUTCString());
+    
+    res.send(optimizedImage);
+  } catch (error) {
+    console.error('Image optimization error:', error);
+    next(error);
+  }
+};
+
+// Serve optimized images
+app.get('/api/images/:image', optimizeImage);
+
+// Serve static files with gzip/brotli compression
+app.use('/', expressStaticGzip(join(__dirname, 'dist'), {
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+  serveStatic: {
+    maxAge: '1y',
+    etag: true
+  }
+}));
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
