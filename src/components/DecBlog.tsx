@@ -1,45 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 
 interface Comment {
   id: string;
-  text: string;
   firstName: string;
   dogName: string;
   email: string;
-  requestFeedback: boolean;
+  text: string;
   date: Date;
+}
+
+interface CommentForm {
+  firstName: string;
+  dogName: string;
+  email: string;
+  text: string;
 }
 
 const DecBlog: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [newComment, setNewComment] = useState({
+  const [newComment, setNewComment] = useState<CommentForm>({
     firstName: '',
     dogName: '',
     email: '',
-    text: '',
-    requestFeedback: false,
+    text: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setNewComment(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: value
     }));
   };
 
   const handleCommentSubmit = () => {
-    if (newComment.text.trim() && newComment.firstName.trim() && newComment.dogName.trim()) {
-      const comment: Comment = {
-        id: Date.now().toString(),
-        ...newComment,
-        date: new Date()
-      };
-      setComments(prevComments => [...prevComments, comment]);
-      setIsModalOpen(false);
-      setNewComment({ firstName: '', dogName: '', email: '', text: '', requestFeedback: false });
-    }
+    const comment: Comment = {
+      id: Date.now().toString(),
+      ...newComment,
+      date: new Date()
+    };
+    setComments(prev => [...prev, comment]);
+    setNewComment({
+      firstName: '',
+      dogName: '',
+      email: '',
+      text: ''
+    });
+    setIsModalOpen(false);
   };
 
   return (
