@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NovBlog from './NovBlog';
 import DecBlog from './DecBlog';
+import FebBlog from './FebBlog';
 import Header from './Header';  // Import the Header component
 import Footer from './Footer';  // Import the Footer component
 import { Container, Typography, Card, CardContent, CardActionArea, Modal, Box, IconButton } from '@mui/material';
@@ -18,16 +19,22 @@ const BlogPage: React.FC = () => {
   // This array will hold all blog posts
   const blogPosts: BlogPost[] = [
     {
-      id: 'nov-2023',
-      component: <NovBlog />,
-      title: 'Pawsome Thanksgiving: Grooming Tips for a Festive Furry Friend',
-      preview: 'How to Keep Your Dog Looking and Feeling Great This November: Thanksgiving Grooming Tips and Winter Coat Care'
+      id: 'feb-2024',
+      component: <FebBlog />,
+      title: 'Pawsitively Pampered: A Valentine\'s Day Treat for Your Pup!',
+      preview: 'Celebrate Valentine\'s Day with your furry friend! Learn about pet-safe celebrations, grooming tips, and special treats to make this Valentine\'s Day memorable.'
     },
     {
       id: 'dec-2023',
       component: <DecBlog />,
       title: 'Grooming Tips for a Festive Furry Friend',
       preview: 'How to Keep Your Dog Looking and Feeling Great This December: Grooming Tips for a Festive Furry Friend'
+    },
+    {
+      id: 'nov-2023',
+      component: <NovBlog />,
+      title: 'Pawsome Thanksgiving: Grooming Tips for a Festive Furry Friend',
+      preview: 'How to Keep Your Dog Looking and Feeling Great This November: Thanksgiving Grooming Tips and Winter Coat Care'
     },
     // Add more blog posts here as they are created
   ];
