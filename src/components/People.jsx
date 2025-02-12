@@ -1,59 +1,67 @@
+import haileyImage from '../Images/optimized/IMG_5380.webp';
+
 const people = [
   {
     name: 'Hailey',
-    email: '',
+    email: 'info@jcoatx.com',
     role: 'Founder / Head Groomer',
-    imageUrl:
-      'IMG_5380.jpeg',
-  },
-  // {
-  //   name: 'Michelle',
-  //   email: '',
-  //   role: 'Groomer',
-  //   imageUrl:
-  //     'https://st3.depositphotos.com/1011434/13157/i/450/depositphotos_131572502-stock-photo-happy-woman-smiling.jpg',
-  // },
-  // {
-  //   name: 'Katie',
-  //   email: '',
-  //   role: 'Groomer',
-  //   imageUrl:
-  //     'https://media.istockphoto.com/id/1301953681/photo/young-woman-student-outdoor-portrait.jpg?s=612x612&w=0&k=20&c=T4IhT-D5RgQqdn5oBz_utSRrsWQFqvkC-VtLjeEN8kg=',
-  // },
-  // {
-  //   name: 'John',
-  //   email: '',
-  //   role: 'Groomer',
-  //   imageUrl:
-  //     'https://cdn.create.vista.com/api/media/small/93999358/stock-photo-portrait-of-mid-adult-african-american-man',
-  //   },
-  
-  
+    imageUrl: haileyImage,
+    bio: 'Professional dog groomer with over a decade of experience, dedicated to providing the best care for your furry friends.'
+  }
 ]
 
 export default function Peoples() {
   return (
-    <div className="bg-red-600  w-full flex flex-row align-center justify-center mt-8 p-10 mb-2 z-10 shadow-xl ">
-
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {people.map((person) => (
-        <div
-          key={person.email}
-          className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-red-500 focus-within:ring-offset-2 hover:border-gray-400"
-        >
-          <div className="flex-shrink-0">
-            <img className="h-10 w-10 rounded-full" src={person.imageUrl} alt="" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <a href="#" className="focus:outline-none">
-              <span className="absolute inset-0" aria-hidden="true" />
-              <p className="text-sm font-medium text-gray-900">{person.name}</p>
-              <p className="truncate text-sm text-gray-500">{person.role}</p>
-            </a>
+    <div className="bg-white py-12">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mb-12">Meet Our Team</h2>
+          <div className="space-y-6">
+            {people.map((person) => (
+              <div
+                key={person.name}
+                className="relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="flex flex-col sm:flex-row">
+                  <div className="sm:w-1/3">
+                    <img 
+                      className="h-full w-full object-cover sm:aspect-[4/5]" 
+                      src={person.imageUrl} 
+                      alt={person.name}
+                      loading="eager"
+                    />
+                  </div>
+                  <div className="p-6 sm:w-2/3">
+                    <div className="space-y-1">
+                      <h3 className="text-2xl font-semibold leading-7 text-gray-900">
+                        {person.name}
+                      </h3>
+                      <p className="text-lg font-medium text-red-600">
+                        {person.role}
+                      </p>
+                      {person.email && (
+                        <p className="text-sm text-gray-500">
+                          <a 
+                            href={`mailto:${person.email}`}
+                            className="hover:text-red-600 transition-colors duration-200"
+                          >
+                            {person.email}
+                          </a>
+                        </p>
+                      )}
+                    </div>
+                    <div className="mt-4">
+                      <p className="text-base text-gray-600 leading-relaxed">
+                        {person.bio}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
+      </div>
     </div>
   )
 }
