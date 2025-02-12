@@ -37,7 +37,18 @@ export default function Header(): JSX.Element {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box component="a" href="https://jcoatx.com" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
-            <Box component="img" src="Logo.png" alt="logo" sx={{ height: 32, width: 'auto', borderRadius: '50%', mr: 2 }} />
+            <Box 
+              component="img" 
+              src="/assets/Logo.png"
+              alt="Jameson & Company Logo" 
+              sx={{ 
+                height: 32, 
+                width: 'auto', 
+                borderRadius: '50%', 
+                mr: 2,
+                display: 'block' // Ensures the image is always shown
+              }} 
+            />
             <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
               Jameson & Company
             </Typography>
