@@ -20,7 +20,7 @@ export default function Help() {
           <ul className="list-disc">
             <li className="mb-4 mt-4 ml-4">
               <span className="font-bold  ">Email:</span>
-              <a href="mailto:websupport@example.com" className="text-red-500 pl-2 underline">Logan@KriegerTX.com</a>
+              <a href="mailto:info@jcoatx.com" className="text-red-500 pl-2 underline">info@jcoatx.com</a>
             </li>
             
             <li className="mb-4 ml-4">
