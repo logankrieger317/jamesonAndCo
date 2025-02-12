@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -39,7 +39,76 @@ const images = [
   { src: malley, alt: 'Dog grooming showcase' }
 ];
 
+// Cache version for managing updates
+const CACHE_VERSION = 'v1';
+const CACHE_NAME = `carousel-images-${CACHE_VERSION}`;
+
 export default function Carousel() {
+  useEffect(() => {
+    // Initialize cache and preload images
+    const initializeCache = async () => {
+      if ('caches' in window) {
+        try {
+          // Open or create cache
+          const cache = await caches.open(CACHE_NAME);
+          
+          // Preload and cache all images
+          const imagePromises = images.map(async (image) => {
+            // Check if image is already cached
+            const cachedResponse = await cache.match(image.src);
+            if (!cachedResponse) {
+              try {
+                const response = await fetch(image.src);
+                if (response.ok) {
+                  await cache.put(image.src, response.clone());
+                }
+              } catch (error) {
+                console.warn('Failed to cache image:', image.src);
+              }
+            }
+          });
+
+          // Wait for all images to be cached
+          await Promise.all(imagePromises);
+        } catch (error) {
+          console.warn('Cache initialization failed:', error);
+        }
+      }
+    };
+
+    // Clean up old caches
+    const cleanupCaches = async () => {
+      if ('caches' in window) {
+        try {
+          const keys = await caches.keys();
+          const oldCaches = keys.filter(key => 
+            key.startsWith('carousel-images-') && key !== CACHE_NAME
+          );
+          await Promise.all(oldCaches.map(key => caches.delete(key)));
+        } catch (error) {
+          console.warn('Cache cleanup failed:', error);
+        }
+      }
+    };
+
+    initializeCache();
+    cleanupCaches();
+
+    // Add preload link tags for next few images
+    const preloadImages = () => {
+      const head = document.head;
+      images.slice(0, 3).forEach(image => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = image.src;
+        head.appendChild(link);
+      });
+    };
+
+    preloadImages();
+  }, []);
+
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <Swiper
@@ -55,6 +124,8 @@ export default function Carousel() {
           '--swiper-navigation-color': '#fff',
           '--swiper-pagination-color': '#fff',
         }}
+        preloadImages={false}
+        watchSlidesProgress={true}
       >
         {images.map((image, index) => (
           <SwiperSlide key={index} className="flex items-center justify-center bg-black">
@@ -63,7 +134,9 @@ export default function Carousel() {
                 <img
                   src={image.src}
                   alt={image.alt}
-                  loading="lazy"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  fetchpriority={index === 0 ? "high" : "auto"}
+                  decoding="async"
                   className="max-h-[750px] w-auto"
                   style={{
                     objectFit: 'contain',
