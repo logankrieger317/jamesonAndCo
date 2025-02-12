@@ -73,35 +73,47 @@ const BlogPage: React.FC = () => {
                 </CardActionArea>
               </Card>
 
+              {/* Blog post modal */}
               <Modal
-                open={openBlog === post.id}
+                open={!!openBlog}
                 onClose={handleCloseBlog}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+                aria-labelledby="blog-modal"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'auto',
+                  p: 2
+                }}
               >
                 <Box sx={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  width: '80%',
+                  position: 'relative',
+                  width: '100%',
+                  maxWidth: '1000px',
+                  maxHeight: '90vh',
+                  overflow: 'auto',
                   bgcolor: 'background.paper',
-                  border: '2px solid #000',
-                  boxShadow: 24,
-                  p: 4,
+                  borderRadius: 2,
+                  p: { xs: 2, md: 4 },
+                  my: 'auto'
                 }}>
                   <IconButton
-                    aria-label="close"
                     onClick={handleCloseBlog}
                     sx={{
-                      position: 'absolute',
-                      right: 8,
-                      top: 8,
+                      position: 'sticky',
+                      top: 0,
+                      right: 0,
+                      float: 'right',
+                      zIndex: 1,
+                      bgcolor: 'background.paper',
+                      '&:hover': {
+                        bgcolor: 'action.hover'
+                      }
                     }}
                   >
                     <CloseIcon />
                   </IconButton>
-                  {post.component}
+                  {openBlog && blogPosts.find(post => post.id === openBlog)?.component}
                 </Box>
               </Modal>
             </React.Fragment>
