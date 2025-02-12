@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Container, Typography, Card, CardContent, CardActionArea, Modal, Box, IconButton } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 import NovBlog from './NovBlog';
 import DecBlog from './DecBlog';
 import Header from './Header';  // Import the Header component
 import Footer from './Footer';  // Import the Footer component
+import { Container, Typography, Card, CardContent, CardActionArea, Modal, Box, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 // This interface will be used for each blog post
 interface BlogPost {
@@ -23,12 +23,12 @@ const BlogPage: React.FC = () => {
       title: 'Pawsome Thanksgiving: Grooming Tips for a Festive Furry Friend',
       preview: 'How to Keep Your Dog Looking and Feeling Great This November: Thanksgiving Grooming Tips and Winter Coat Care'
     },
-    // {
-    //   id: 'dec-2023',
-    //   component: <DecBlog />,
-    //   title: 'Grooming Tips for a Festive Furry Friend',
-    //   preview: 'How to Keep Your Dog Looking and Feeling Great This December: Grooming Tips for a Festive Furry Friend'
-    // },
+    {
+      id: 'dec-2023',
+      component: <DecBlog />,
+      title: 'Grooming Tips for a Festive Furry Friend',
+      preview: 'How to Keep Your Dog Looking and Feeling Great This December: Grooming Tips for a Festive Furry Friend'
+    },
     // Add more blog posts here as they are created
   ];
 
@@ -50,57 +50,56 @@ const BlogPage: React.FC = () => {
           Dog Grooming Blog
         </Typography>
 
-        {blogPosts.map((post) => (
-          <React.Fragment key={post.id}>
-            <Card sx={{ mb: 4, boxShadow: 3 }}>
-              <CardActionArea onClick={() => handleOpenBlog(post.id)}>
-                <CardContent>
-                  <Typography variant="h5" component="h2" sx={{ mb: 2 }}>
-                    {post.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {post.preview}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map((post) => (
+            <React.Fragment key={post.id}>
+              <Card sx={{ maxWidth: 345, mx: 'auto', mb: 4 }}>
+                <CardActionArea onClick={() => handleOpenBlog(post.id)}>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {post.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {post.preview}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
 
-            <Modal
-              open={openBlog === post.id}
-              onClose={handleCloseBlog}
-              aria-labelledby={`blog-modal-${post.id}`}
-              aria-describedby={`blog-modal-description-${post.id}`}
-            >
-              <Box sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '90%',
-                maxWidth: 800,
-                maxHeight: '90vh',
-                bgcolor: 'background.paper',
-                boxShadow: 24,
-                overflow: 'auto',
-                borderRadius: 2,
-              }}>
-                <IconButton
-                  aria-label="close"
-                  onClick={handleCloseBlog}
-                  sx={{
-                    position: 'absolute',
-                    right: 8,
-                    top: 8,
-                    color: (theme) => theme.palette.grey[500],
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
-                {post.component}
-              </Box>
-            </Modal>
-          </React.Fragment>
-        ))}
+              <Modal
+                open={openBlog === post.id}
+                onClose={handleCloseBlog}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '80%',
+                  bgcolor: 'background.paper',
+                  border: '2px solid #000',
+                  boxShadow: 24,
+                  p: 4,
+                }}>
+                  <IconButton
+                    aria-label="close"
+                    onClick={handleCloseBlog}
+                    sx={{
+                      position: 'absolute',
+                      right: 8,
+                      top: 8,
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                  {post.component}
+                </Box>
+              </Modal>
+            </React.Fragment>
+          ))}
+        </div>
       </Container>
       <Footer />
     </>
