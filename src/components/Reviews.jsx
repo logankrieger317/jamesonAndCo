@@ -26,16 +26,16 @@ export default function Reviews() {
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
-          <div className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentReviews.map((review) => (
-              <div key={review.id} className="pt-8 sm:inline-block sm:w-full sm:px-4">
-                <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
-                  <blockquote className="text-gray-900">
-                    <p>{review.text}</p>
+              <div key={review.id} className="h-[300px] p-6 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200">
+                <figure className="h-full flex flex-col">
+                  <blockquote className="flex-grow overflow-y-auto custom-scrollbar">
+                    <p className="text-gray-900 text-sm leading-6 pr-2">{review.text}</p>
                   </blockquote>
-                  <figcaption className="mt-6">
+                  <figcaption className="mt-6 border-t border-gray-100 pt-4 flex-shrink-0">
                     <div className="font-semibold text-gray-900">{review.author}</div>
-                    <div className="text-gray-600">{review.date}</div>
+                    <div className="mt-1 text-sm text-gray-600">{review.date}</div>
                   </figcaption>
                 </figure>
               </div>
