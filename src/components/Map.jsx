@@ -71,10 +71,10 @@ export default function Map() {
                 {dayOfWeek.map((day) => (
                   <div 
                     key={day.day} 
-                    className="flex flex-col items-center p-3 bg-red-900/20 rounded-lg"
+                    className="flex flex-col items-center justify-center p-3 bg-white rounded-lg shadow-md h-24 w-full"
                   >
-                    <p className="font-bold text-sm">{day.day}</p>
-                    <p className="text-sm mt-1">{day.hours}</p>
+                    <p className="font-bold text-sm text-gray-900">{day.day}</p>
+                    <p className="text-sm mt-1 text-gray-600">{day.hours}</p>
                   </div>
                 ))}
               </div>
