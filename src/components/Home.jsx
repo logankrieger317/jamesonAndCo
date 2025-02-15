@@ -23,12 +23,25 @@ const tiers = [
     name: "Full Service Grooming",
     id: "tier-basic",
     href: bookingUrl,
-    price: { starting: "$65", addons: "$100" },
-    description: "Everything to fully pamper your pet!",
+    price: { starting: "$78", addons: "$100" },
+    description: "A stylish haircut, soothing bat, and more for a fully pampered experience.",
     features: [
       ["Includes: ", "Haircut", ", ", "Bath", ", ", "Brush", ", "],
       ["Nail Trim", ", ", "Ear Cleaning "],
       ["and Gland Expression..."],
+    ],
+  },
+  {
+    name: "Feet, Face, and Fanny",
+    id: "tier-FFF",
+    href: bookingUrl,
+    price: { starting: "$81", addons: "$100" },
+    description: "A full bath and a trim of the Face, Feet, and Fanny trims to keep your pet looking sharp!",
+    features: [
+      ["Nail Grind"],
+      ["Nail Trim"],
+      ["Ear Cleaning"],
+      ["And More..."],
     ],
   },
   {
@@ -37,7 +50,7 @@ const tiers = [
     href: bookingUrl,
     price: { starting: "$35", addons: "$100" },
     description:
-      "A relaxing and enjoyable wash to keep your pet looking their best!",
+      "A relaxing and enjoyable wash to keep your pet happy and comfortable!",
     features: [
       ["Includes: ",  "Bath", ", ", "Brush", ", "],
       ["Nail Trim", ", ", "Ear Cleaning "],
@@ -49,7 +62,7 @@ const tiers = [
     id: "tier-growth",
     href: bookingUrl,
     price: { starting: "$10", addons: "$60" },
-    description: "Face, Feet, and Fanny trims to keep your pet looking sharp!",
+    description: "No appointment, No problem! Check out our walk-in services.",
     features: [
       ["Nail Grind"],
       ["Nail Trim"],
