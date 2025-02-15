@@ -5,14 +5,24 @@ import CloseIcon from '@mui/icons-material/Close';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 // import OutOfOfficeHeader from './OutOfOfficeHeader';
+import { trackBookNowClick } from '../services/analytics';
+import mixpanel from 'mixpanel-browser';
 
 interface NavigationItem {
   name: string;
   href: string;
+  onClick?: () => void;
 }
 
 const navigation: NavigationItem[] = [
-  { name: 'Book Now', href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming' },
+  { 
+    name: 'Book Now', 
+    href: 'https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming', 
+    onClick: () => {
+      trackBookNowClick('header_nav');
+      mixpanel.track('Book Now Clicked', { 'Location': 'Header' });
+    } 
+  },
   { name: 'Blog', href: '/blog' }
 ];
 
@@ -59,6 +69,7 @@ export default function Header(): JSX.Element {
               <Button
                 key={item.name}
                 href={item.href}
+                onClick={item.onClick}
                 sx={{ color: 'text.primary', textTransform: 'none', fontWeight: 600 }}
               >
                 {item.name}

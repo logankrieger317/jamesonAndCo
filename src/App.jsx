@@ -16,6 +16,7 @@ import Faq from './components/Faq';
 import Help from './components/Help';
 import Error from './components/Error';
 import BlogPage from './components/BlogPage';
+import Sales from './components/Sales';
 import './App.css';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/help" element={<Help />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/sales" element={<Sales />} />
         <Route path="/error" element={<Error />} />
         {/* Catch-all route to handle undefined paths */}
         <Route path="*" element={<Error />} />

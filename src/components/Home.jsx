@@ -10,6 +10,7 @@ import Map from "../components/Map";
 import BackToSchoolModal from "./BackToSchoolModal";
 import UserInfoModal from "./UserInfoModal";
 import OOOModal from "./OOOModal";
+import { trackBookNowClick } from '../services/analytics';
 // import BookingSpecialModal from "./BookingSpecialModal";
 
 
@@ -154,6 +155,7 @@ Submit
 <a
 href={bookingUrl}
 className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
+onClick={() => trackBookNowClick('home_info_modal')}
 >
 Book Now
 </a>
@@ -222,6 +224,14 @@ onClick={() => setIsVisible(true)}
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
                   href={bookingUrl}
+                  onClick={(e) => {
+                    // Prevent default to ensure our tracking runs
+                    e.preventDefault();
+                    // Track the click
+                    trackBookNowClick('home_hero');
+                    // Then navigate
+                    window.location.href = bookingUrl;
+                  }}
                   className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
                   Book Now!
@@ -283,6 +293,7 @@ onClick={() => setIsVisible(true)}
                     <a
                       href={tier.href}
                       aria-describedby={tier.id}
+                      onClick={() => trackBookNowClick('pricing')}
                       className="mt-10 block rounded-md bg-red-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                     >
                       Book Now!
