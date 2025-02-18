@@ -1,30 +1,30 @@
 import React from 'react';
 
 const promotions = [
-  {
-    id: 1,
-    title: "New Client Special",
-    description: "First-time clients receive 20% off their first full grooming service",
-    terms: "Valid for new clients only. Cannot be combined with other offers.",
-    validUntil: "No expiration",
-    image: "/images/new-client.jpg"
-  },
-  {
-    id: 2,
-    title: "Referral Rewards",
-    description: "Refer a friend and you both get $10 off your next grooming service",
-    terms: "Referral must be a new client. Discount applies to next visit only.",
-    validUntil: "Ongoing promotion",
-    image: "/images/referral.jpg"
-  },
-  {
-    id: 3,
-    title: "Multiple Pet Discount",
-    description: "Save 10% when you bring in multiple pets for grooming on the same day",
-    terms: "Must be scheduled for the same day. Discount applies to all pets in the same visit.",
-    validUntil: "Ongoing promotion",
-    image: "/images/multiple-pets.jpg"
-  }
+  // {
+  //   id: 1,
+  //   title: "New Client Special",
+  //   description: "First-time clients receive 20% off their first full grooming service",
+  //   terms: "Valid for new clients only. Cannot be combined with other offers.",
+  //   validUntil: "No expiration",
+  //   image: "/images/new-client.jpg"
+  // },
+  // {
+  //   id: 2,
+  //   title: "Referral Rewards",
+  //   description: "Refer a friend and you both get $10 off your next grooming service",
+  //   terms: "Referral must be a new client. Discount applies to next visit only.",
+  //   validUntil: "Ongoing promotion",
+  //   image: "/images/referral.jpg"
+  // },
+  // {
+  //   id: 3,
+  //   title: "Multiple Pet Discount",
+  //   description: "Save 10% when you bring in multiple pets for grooming on the same day",
+  //   terms: "Must be scheduled for the same day. Discount applies to all pets in the same visit.",
+  //   validUntil: "Ongoing promotion",
+  //   image: "/images/multiple-pets.jpg"
+  // }
 ];
 
 export default function Sales() {
