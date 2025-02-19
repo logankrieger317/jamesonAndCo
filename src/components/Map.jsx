@@ -1,87 +1,147 @@
+import { Box, Container, Grid, Paper, Typography, Link } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
 const dayOfWeek = [
   {
     day: "Monday",
-    hours: "Closed",
+    hours: "10:00 am - 6:00 pm",
+    walkIn: "Subject to availability",
   },
   {
     day: "Tuesday",
     hours: "10:00 am - 6:00 pm",
+    walkIn: "Subject to availability",
   },
   {
     day: "Wednesday",
     hours: "10:00 am - 6:00 pm",
+    walkIn: "Subject to availability",
   },
   {
     day: "Thursday",
     hours: "10:00 am - 6:00 pm",
+    walkIn: "Subject to availability",
   },
   {
     day: "Friday",
     hours: "10:00 am - 6:00 pm",
+    walkIn: "Subject to availability",
   },
   {
     day: "Saturday",
     hours: "10:00 am - 6:00 pm",
+    walkIn: "Subject to availability",
   },
   {
     day: "Sunday",
-    hours: "Closed",
+    hours: "10:00 am - 6:00 pm",
+    walkIn: "Subject to availability",
   },
 ];
 
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(2),
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: theme.palette.common.white,
+  borderRadius: theme.shape.borderRadius,
+  '&:hover': {
+    boxShadow: theme.shadows[4],
+    transition: 'box-shadow 0.3s ease-in-out',
+  },
+}));
+
+const MapContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: '#DC2626', // red-600
+  padding: theme.spacing(6, 0),
+}));
+
 export default function Map() {
   return (
-    <div className="bg-red-600 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-black rounded-2xl shadow-2xl overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+    <MapContainer>
+      <Container maxWidth="lg">
+        <Paper
+          elevation={8}
+          sx={{
+            backgroundColor: 'black',
+            borderRadius: 4,
+            overflow: 'hidden',
+            p: 4,
+          }}
+        >
+          <Grid container spacing={4} alignItems="center">
             {/* Map Section */}
-            <div className="flex flex-col items-center justify-center space-y-4">
-              <p className="text-white font-bold text-lg text-center">
-                Located in front of{" "}
-                <a 
-                  href="https://thewateringbowlatx.com" 
-                  className="text-red-400 hover:text-red-300 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <Grid item xs={12} lg={6}>
+              <Box display="flex" flexDirection="column" alignItems="center" gap={4}>
+                <Typography variant="h6" color="white" align="center">
+                  Located in front of{' '}
+                  <Link
+                    href="https://thewateringbowlatx.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: '#F87171', // red-400
+                      '&:hover': {
+                        color: '#FCA5A5', // red-300
+                      },
+                    }}
+                  >
+                    The Watering Bowl!
+                  </Link>
+                </Typography>
+                <Box
+                  sx={{
+                    width: '100%',
+                    height: 400,
+                    borderRadius: 2,
+                    overflow: 'hidden',
+                  }}
                 >
-                  The Watering Bowl!
-                </a>
-              </p>
-              <div className="w-full h-[400px] rounded-lg overflow-hidden">
-                <iframe
-                  title="Jameson & Company location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.9008901657257!2d-97.8493661!3d30.131778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b4cd161957f93%3A0x4b0219435a25c4ba!2s820%20FM1626%2C%20Austin%2C%20TX%2078748!5e0!3m2!1sen!2sus!4v1707786234962!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </div>
+                  <iframe
+                    title="Jameson & Company location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.9008901657257!2d-97.8493661!3d30.131778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b4cd161957f93%3A0x4b0219435a25c4ba!2s820%20FM1626%2C%20Austin%2C%20TX%2078748!5e0!3m2!1sen!2sus!4v1707786234962!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </Box>
+              </Box>
+            </Grid>
 
             {/* Hours and Address Section */}
-            <div className="flex flex-col items-center justify-center text-white space-y-6">
-              <p className="font-bold text-xl text-center">
-                820 Farm to Market 1626, Austin, TX 78748
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full max-w-md">
-                {dayOfWeek.map((day) => (
-                  <div 
-                    key={day.day} 
-                    className="flex flex-col items-center justify-center p-3 bg-white rounded-lg shadow-md h-24 w-full"
-                  >
-                    <p className="font-bold text-sm text-gray-900">{day.day}</p>
-                    <p className="text-sm mt-1 text-gray-600">{day.hours}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <Grid item xs={12} lg={6}>
+              <Box display="flex" flexDirection="column" alignItems="center" gap={3}>
+                <Typography variant="h5" color="white" align="center" gutterBottom>
+                  820 Farm to Market 1626, Austin, TX 78748
+                </Typography>
+                <Grid container spacing={2}>
+                  {dayOfWeek.map((day) => (
+                    <Grid item xs={6} sm={4} key={day.day}>
+                      <StyledPaper elevation={2}>
+                        <Typography variant="subtitle1" color="text.primary" fontWeight="bold">
+                          {day.day}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" align="center">
+                          {day.hours}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 0.5 }}>
+                          Walk In: {day.walkIn}
+                        </Typography>
+                      </StyledPaper>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            </Grid>
+          </Grid>
+        </Paper>
+      </Container>
+    </MapContainer>
   );
 }

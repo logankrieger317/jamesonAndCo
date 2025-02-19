@@ -10,12 +10,8 @@ import Map from "../components/Map";
 import BackToSchoolModal from "./BackToSchoolModal";
 import UserInfoModal from "./UserInfoModal";
 import OOOModal from "./OOOModal";
+import ChatAssistant from "./ChatAssistant";
 import { trackBookNowClick } from '../services/analytics';
-// import BookingSpecialModal from "./BookingSpecialModal";
-
-
-
-
 
 const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 const tiers = [
@@ -74,143 +70,28 @@ const tiers = [
 
 const Home = () => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
   const [isBackToSchoolVisible, setIsBackToSchoolVisible]= useState(false)
-  const [email, setEmail] = useState("");
-  const [question, setQuestion] = useState("");
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 
   // Toggle on window load modal show VS    
   useEffect(() => {
-    setIsVisible(false);
     setIsBackToSchoolVisible(false);
     setShowUserInfoModal(true);
   }, []);
 
-  const handleClickOutside = (event) => {
-    if (event.target.className.includes("modal")) {
-      setIsVisible(false);
-      setIsBackToSchoolVisible(false);
-    }
-  };
-
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    window.location.href = "mailto:info@jcoatx.com";
-  };
-
-  const handleCallClick = (e) => {
-    e.preventDefault();
-    window.location.href = "tel:7372637002";
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    const emailInput = document.getElementById("inline-email");
-    const email = emailInput.value;
-    const subject = "Question from Jameson & Company Dog Grooming Website";
-    const body = "Please fill in your question here.";
-    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
-  };
-
-
-
-
   return (
     <>
-    {/* <BackToSchoolModal/> */}
-    {/* {showUserInfoModal && <UserInfoModal onClose={() => setShowUserInfoModal(false)} />} */}
-    {/* <BookingSpecialModal /> */}
-    <OOOModal />
-    
-  <div>
-{/* Info Modal */}
-{isVisible && (
-<div
-className="fixed inset-0 flex items-center justify-center z-50 modal"
-onClick={handleClickOutside}
->
-<div className="w-full max-w-md flex flex-col items-center justify-center space-y-4 modal-content z-50 bg-gray-900 bg-opacity-90 shadow-modalShadow border-solid border-2 border-red-600 border-opacity-5 p-4 text-white">
-<h2 className="text-center text-lg lg:text-2xl font-bold">Welcome!</h2>
+      <OOOModal />
+      <div>
+        <ChatAssistant />
+        <Header />
 
-{/* Modal OOO Message Leaving comments to toggle on later */}
-{/* <h1 className="text-xl border-2 border-width-2 border-red-600 p-0.5">I will be away from the grooming truck with limited access to phone and email until<strong> June 10th</strong>. I will respond to all questions and booking confrimations upon my return.</h1> */}
-<p className="text-center text-sm lg:text-base">
-If you have any questions, press the button to send an email with your question!
-</p>
-<form className="w-full flex flex-col items-center space-y-4">
-<div className="w-full flex flex-col items-center">
-<label
-className="block text-white font-bold text-sm lg:text-base mb-1 md:mb-0"
-htmlFor="inline-email"
->
-Email
-</label>
-<input
-className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
-id="inline-email"
-type="text"
-/>
-</div>
-<div className="w-full flex flex-col items-center">
-<button
-className="w-full bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-2"
-type="button"
-onClick={sendEmail}
->
-Submit
-</button>
-</div>
-<div className="w-full flex flex-col text-center items-center">
-<a
-href={bookingUrl}
-className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
-onClick={() => trackBookNowClick('home_info_modal')}
->
-Book Now
-</a>
-</div>
-</form>
-<p className="text-center text-sm lg:text-base">
-Or contact us directly at:
-</p>
-<p className="text-center text-sm lg:text-base">
-<a
-href="mailto:info@jcoatx.com"
-onClick={handleEmailClick}
->
-Email: info@jcoatx.com
-</a>
-</p>
-<p className="text-center text-sm lg:text-base">
-<a href="tel:7372637002" onClick={handleCallClick}>
-Phone: (737) 263-7002
-</a>
-</p>
-</div>
-</div>
-)}
-<div
-className="fixed bottom-4 right-4 cursor-pointer z-50"
-onClick={() => setIsVisible(true)}
->
-<FontAwesomeIcon icon={faCommentDots} size="2x" />
-</div>
-<div className={`${isVisible ? "filter blur-sm" : ""}`}>
-</div>
-
-      <Header />
-
-      {/* Photo Section */}
-      <div className="relative mt-6 flex align-middle justify-center z-10 shadow-2xl ">
-        <div className=" max-w-xl max-h-xl ">
-          <Carousel />
+        {/* Photo Section */}
+        <div className="relative mt-6 flex align-middle justify-center z-10 shadow-2xl ">
+          <div className=" max-w-xl max-h-xl ">
+            <Carousel />
+          </div>
         </div>
-      </div>
-
 
         {/* Intro Block  */}
 
@@ -338,7 +219,6 @@ onClick={() => setIsVisible(true)}
         <Reviews />
         <Footer />
       </div>
-    
     </>
   );
 };
