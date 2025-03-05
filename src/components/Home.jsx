@@ -81,7 +81,7 @@ const Home = () => {
 
   return (
     <>
-      <OOOModal />
+      {/* <OOOModal /> */}
       <div>
         <ChatAssistant />
         <Header />
