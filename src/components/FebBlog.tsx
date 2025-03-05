@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import {
   Typography,
   Box,
@@ -18,9 +19,37 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WarningIcon from "@mui/icons-material/Warning";
 
-const FebBlog = () => {
+const FebBlog: React.FC = () => {
+  const blogMetadata = {
+    title: "Pawsitively Pampered: A Valentine's Day Treat for Your Pup! | Jameson & Co Dog Grooming",
+    description: "Celebrate Valentine's Day with your furry friend! Learn about pet-safe celebrations, grooming tips, and special treats from Austin's premier dog grooming service.",
+    keywords: "Valentine's Day dog grooming, pet-safe Valentine's treats, Austin dog grooming, holiday pet care, Jameson & Co, dog spa Austin TX",
+    author: "Hailey at Jameson & Co",
+    publishDate: "2024-02-01",
+    modifiedDate: "2024-02-01",
+    image: "/images/valentines-dog-grooming.jpg"
+  };
+
   return (
-    <Box sx={{ width: "100%", overflow: "hidden" }}>
+    <>
+      <Helmet>
+        <title>{blogMetadata.title}</title>
+        <meta name="description" content={blogMetadata.description} />
+        <meta name="keywords" content={blogMetadata.keywords} />
+        <meta name="author" content={blogMetadata.author} />
+        <meta property="article:published_time" content={blogMetadata.publishDate} />
+        <meta property="article:modified_time" content={blogMetadata.modifiedDate} />
+        <meta property="og:title" content={blogMetadata.title} />
+        <meta property="og:description" content={blogMetadata.description} />
+        <meta property="og:image" content={blogMetadata.image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blogMetadata.title} />
+        <meta name="twitter:description" content={blogMetadata.description} />
+        <meta name="twitter:image" content={blogMetadata.image} />
+      </Helmet>
+      <Box sx={{ width: "100%", overflow: "hidden" }}>
       <Paper elevation={3} sx={{ p: 4, maxWidth: "800px", mx: "auto", my: 4 }}>
         <Typography
           variant="h3"
@@ -166,8 +195,10 @@ const FebBlog = () => {
           Jameson & Co Dog Grooming
         </Typography>
       </Paper>
-    </Box>
+      </Box>
+    </>
   );
 };
 
 export default FebBlog;
+

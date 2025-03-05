@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import {
   Typography,
   Box,
@@ -17,8 +18,35 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WarningIcon from "@mui/icons-material/Warning";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-const DecBlog = () => {
+const DecBlog: React.FC = () => {
+  const blogMetadata = {
+    title: "Holiday Grooming Tips: Keep Your Pup Festive & Fresh! | Jameson & Co Dog Grooming",
+    description: "Expert winter grooming tips for your dog from Austin's premier grooming service. Learn about winter coat care, paw protection, and holiday scheduling at Jameson & Co.",
+    keywords: "holiday dog grooming, winter pet care, Austin dog grooming, paw protection, winter coat care, Christmas pet grooming, Jameson & Co",
+    author: "Hailey at Jameson & Co",
+    publishDate: "2023-12-01",
+    modifiedDate: "2023-12-01",
+    image: "/images/winter-dog-grooming.jpg"
+  };
   return (
+    <>
+      <Helmet>
+        <title>{blogMetadata.title}</title>
+        <meta name="description" content={blogMetadata.description} />
+        <meta name="keywords" content={blogMetadata.keywords} />
+        <meta name="author" content={blogMetadata.author} />
+        <meta property="article:published_time" content={blogMetadata.publishDate} />
+        <meta property="article:modified_time" content={blogMetadata.modifiedDate} />
+        <meta property="og:title" content={blogMetadata.title} />
+        <meta property="og:description" content={blogMetadata.description} />
+        <meta property="og:image" content={blogMetadata.image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blogMetadata.title} />
+        <meta name="twitter:description" content={blogMetadata.description} />
+        <meta name="twitter:image" content={blogMetadata.image} />
+      </Helmet>
     <Box sx={{ width: "100%", overflow: "hidden" }}>
       <Paper elevation={3} sx={{ p: 4, maxWidth: "800px", mx: "auto", my: 4 }}>
         <Typography
@@ -131,6 +159,7 @@ const DecBlog = () => {
         </Typography>
       </Paper>
     </Box>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import {
   Typography,
   Box,
@@ -17,8 +18,35 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WarningIcon from "@mui/icons-material/Warning";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-const NovBlog = () => {
+const NovBlog: React.FC = () => {
+  const blogMetadata = {
+    title: "Pawsome Thanksgiving: Keep Your Pup Fresh & Festive! | Jameson & Co Dog Grooming",
+    description: "Prepare your furry friend for Thanksgiving with expert grooming tips from Austin's premier dog grooming service. Learn about holiday pet safety, winter coat care, and special holiday hours.",
+    keywords: "Thanksgiving dog grooming, Austin pet grooming, holiday pet safety, winter coat care, dog grooming Austin TX, Jameson & Co",
+    author: "Hailey at Jameson & Co",
+    publishDate: "2023-11-01",
+    modifiedDate: "2023-11-01",
+    image: "/images/thanksgiving-dog-grooming.jpg"
+  };
   return (
+    <>
+      <Helmet>
+        <title>{blogMetadata.title}</title>
+        <meta name="description" content={blogMetadata.description} />
+        <meta name="keywords" content={blogMetadata.keywords} />
+        <meta name="author" content={blogMetadata.author} />
+        <meta property="article:published_time" content={blogMetadata.publishDate} />
+        <meta property="article:modified_time" content={blogMetadata.modifiedDate} />
+        <meta property="og:title" content={blogMetadata.title} />
+        <meta property="og:description" content={blogMetadata.description} />
+        <meta property="og:image" content={blogMetadata.image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blogMetadata.title} />
+        <meta name="twitter:description" content={blogMetadata.description} />
+        <meta name="twitter:image" content={blogMetadata.image} />
+      </Helmet>
     <Box sx={{ width: "100%", overflow: "hidden" }}>
       <Paper elevation={3} sx={{ p: 4, maxWidth: "800px", mx: "auto", my: 4 }}>
         <Typography
@@ -131,6 +159,7 @@ const NovBlog = () => {
         </Typography>
       </Paper>
     </Box>
+    </>
   );
 };
 

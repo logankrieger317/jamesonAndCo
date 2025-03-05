@@ -13,6 +13,12 @@ interface BlogPost {
   component: React.ReactNode;
   title: string;
   preview: string;
+  author: string;
+  datePublished: string;
+  lastModified?: string;
+  image?: string;
+  tags: string[];
+  category: string;
 }
 
 const BlogPage: React.FC = () => {
@@ -22,19 +28,37 @@ const BlogPage: React.FC = () => {
       id: 'feb-2024',
       component: <FebBlog />,
       title: 'Pawsitively Pampered: A Valentine\'s Day Treat for Your Pup!',
-      preview: 'Celebrate Valentine\'s Day with your furry friend! Learn about pet-safe celebrations, grooming tips, and special treats to make this Valentine\'s Day memorable.'
+      preview: 'Celebrate Valentine\'s Day with your furry friend! Learn about pet-safe celebrations, grooming tips, and special treats to make this Valentine\'s Day memorable.',
+      author: 'Hailey',
+      datePublished: '2024-02-01',
+      lastModified: '2024-02-01',
+      image: '/images/valentines-dog-grooming.jpg',
+      tags: ['Valentine\'s Day', 'dog grooming', 'pet safety', 'Austin pet care', 'holiday grooming'],
+      category: 'Holiday Pet Care'
     },
     {
       id: 'dec-2023',
       component: <DecBlog />,
       title: 'Grooming Tips for a Festive Furry Friend',
-      preview: 'How to Keep Your Dog Looking and Feeling Great This December: Grooming Tips for a Festive Furry Friend'
+      preview: 'How to Keep Your Dog Looking and Feeling Great This December: Grooming Tips for a Festive Furry Friend',
+      author: 'Hailey',
+      datePublished: '2023-12-01',
+      lastModified: '2023-12-01',
+      image: '/images/winter-dog-grooming.jpg',
+      tags: ['winter grooming', 'holiday pet care', 'dog grooming tips', 'Austin pets', 'Christmas'],
+      category: 'Seasonal Grooming'
     },
     {
       id: 'nov-2023',
       component: <NovBlog />,
       title: 'Pawsome Thanksgiving: Grooming Tips for a Festive Furry Friend',
-      preview: 'How to Keep Your Dog Looking and Feeling Great This November: Thanksgiving Grooming Tips and Winter Coat Care'
+      preview: 'How to Keep Your Dog Looking and Feeling Great This November: Thanksgiving Grooming Tips and Winter Coat Care',
+      author: 'Hailey',
+      datePublished: '2023-11-01',
+      lastModified: '2023-11-01',
+      image: '/images/thanksgiving-dog-grooming.jpg',
+      tags: ['Thanksgiving', 'winter coat care', 'dog grooming', 'Austin pet grooming', 'holiday tips'],
+      category: 'Holiday Pet Care'
     },
     // Add more blog posts here as they are created
   ];
@@ -49,9 +73,55 @@ const BlogPage: React.FC = () => {
     setOpenBlog(null);
   };
 
+  // Generate schema markup for the blog posts
+  const generateBlogSchema = () => {
+    const blogSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      'name': 'Jameson & Co Dog Grooming Blog',
+      'description': 'Expert dog grooming tips, seasonal pet care advice, and local Austin pet resources',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Jameson & Co',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://jamesonandco.com/images/logo.jpg'
+        }
+      },
+      'blogPost': blogPosts.map(post => ({
+        '@type': 'BlogPosting',
+        'headline': post.title,
+        'description': post.preview,
+        'author': {
+          '@type': 'Person',
+          'name': post.author
+        },
+        'datePublished': post.datePublished,
+        'dateModified': post.lastModified || post.datePublished,
+        'image': post.image,
+        'keywords': post.tags.join(', '),
+        'articleSection': post.category,
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Jameson & Co',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://jamesonandco.com/images/logo.jpg'
+          }
+        }
+      }))
+    };
+
+    return JSON.stringify(blogSchema);
+  };
+
   return (
     <>
       <Header />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: generateBlogSchema() }}
+      />
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Typography variant="h2" component="h1" sx={{ mb: 8, textAlign: 'center', fontWeight: 'bold', color: 'black' }}>
           Dog Grooming Blog
