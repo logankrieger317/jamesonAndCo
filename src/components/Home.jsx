@@ -31,7 +31,7 @@ const tiers = [
     name: "Feet, Face, and Fanny",
     id: "tier-FFF",
     href: bookingUrl,
-    price: { starting: "$81", addons: "$100" },
+    price: { starting: "$64", addons: "$85" },
     description: "A full bath and a trim of the Face, Feet, and Fanny trims to keep your pet looking sharp!",
     features: [
       ["Nail Grind"],
