@@ -10,6 +10,7 @@ import Map from "../components/Map";
 import BackToSchoolModal from "./BackToSchoolModal";
 import UserInfoModal from "./UserInfoModal";
 import OOOModal from "./OOOModal";
+import DiscountModal from "./DiscountModal";
 import ChatAssistant from "./ChatAssistant";
 import { trackBookNowClick } from '../services/analytics';
 
@@ -70,18 +71,30 @@ const tiers = [
 
 const Home = () => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(true);
-  const [isBackToSchoolVisible, setIsBackToSchoolVisible]= useState(false)
+  const [isBackToSchoolVisible, setIsBackToSchoolVisible] = useState(false);
+  const [showDiscountModal, setShowDiscountModal] = useState(false)
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 
   // Toggle on window load modal show VS    
   useEffect(() => {
+    // Show the discount modal after a short delay
+    const timer = setTimeout(() => {
+      setShowDiscountModal(true);
+    }, 1000);
+
     setIsBackToSchoolVisible(false);
     setShowUserInfoModal(true);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
       {/* <OOOModal /> */}
+      <DiscountModal 
+        isOpen={showDiscountModal}
+        onClose={() => setShowDiscountModal(false)}
+      />
       <div>
         <ChatAssistant />
         <Header />
