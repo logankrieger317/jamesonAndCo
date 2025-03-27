@@ -3,6 +3,7 @@ import NovBlog from "./NovBlog";
 import DecBlog from "./DecBlog";
 import FebBlog from "./FebBlog";
 import MarchBlog from "./MarchBlog";
+import AprBlog from "./AprBlog";
 import Header from "./Header"; // Import the Header component
 import Footer from "./Footer"; // Import the Footer component
 import {
@@ -34,6 +35,25 @@ interface BlogPost {
 const BlogPage: React.FC = () => {
   // This array will hold all blog posts
   const blogPosts: BlogPost[] = [
+    {
+      id: "april-2024",
+      component: <AprBlog />,
+      title: "Shedding Season is Here – Let Us Help with the Fluff!",
+      preview:
+        "Spring is here and so is shedding season! Learn about our special April deshedding treatments and how to keep your home fur-free.",
+      author: "Hailey",
+      datePublished: "2024-04-01",
+      lastModified: "2024-04-01",
+      image: "/images/spring-deshedding.jpg",
+      tags: [
+        "spring grooming",
+        "deshedding",
+        "seasonal care",
+        "Austin pet care",
+        "dog grooming"
+      ],
+      category: "Seasonal Tips"
+    },
     {
       id: "march-2024",
       component: <MarchBlog />,
