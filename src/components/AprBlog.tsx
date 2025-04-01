@@ -96,7 +96,8 @@ const AprBlog: React.FC = () => {
 
         <Box sx={{ mb: 4 }}>
           <Typography variant="h5" gutterBottom sx={{ color: "#dc2626" }}>
-            🛁 April Special: Deshedding Treatment
+            🛁 April Special: Deshedding Treatment. Take $3 dollars off a
+            deshedding treatment!
           </Typography>
 
           <Typography variant="body1" paragraph>

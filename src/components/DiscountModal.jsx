@@ -42,55 +42,55 @@ const DiscountModal = ({ isOpen, onClose }) => {
       overlayClassName="z-[999]"
     >
       <div className="text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-600">🌿 Spring Special Offer! 🌿</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-600">🌼 Spring Deshedding Special! 🌼</h2>
         <div className="bg-red-50 p-4 md:p-6 rounded-lg mb-4">
-          <h3 className="text-2xl font-bold text-red-600 mb-2">25% OFF</h3>
-          <p className="text-xl font-semibold text-gray-800 mb-2">Tea Tree Conditioner</p>
+          <h3 className="text-2xl font-bold text-red-600 mb-2">$3 OFF</h3>
+          <p className="text-xl font-semibold text-gray-800 mb-2">Professional Deshedding Treatment</p>
           <p className="text-gray-600 mb-4">
-            Perfect for soothing dry, itchy skin during seasonal changes!
+            Combat spring shedding with our specialized treatment!
           </p>
           <div className="bg-white p-3 md:p-4 rounded-lg mt-2">
-            <p className="text-red-600 font-semibold mb-2">✨ Add to Any Grooming Service!</p>
+            <p className="text-red-600 font-semibold mb-2">✨ Spring Coat Reset Special!</p>
             <p className="text-gray-700">
-              Enhance your pup's grooming experience by adding our premium tea tree conditioner treatment. Just mention this offer when booking or during check-in!
-            </p>
-            <p className="text-sm text-gray-600 mt-2 italic">
-              Regular price: $15 • With discount: $11.25
+              As temperatures rise and winter coats shed, treat your pup to our professional deshedding service. Perfect for double-coated breeds!
             </p>
           </div>
         </div>
         
         <div className="text-left mb-4">
-          <h4 className="text-lg font-semibold text-gray-800 mb-2">Benefits:</h4>
+          <h4 className="text-lg font-semibold text-gray-800 mb-2">Treatment Benefits:</h4>
           <ul className="list-disc list-inside text-gray-600 space-y-2">
-            <li>Hydrates and soothes dry, itchy skin</li>
-            <li>Reduces dandruff and restores coat health</li>
-            <li>Natural tea tree oil properties</li>
-            <li>Fresh, clean scent</li>
+            <li>Reduces shedding by up to 80%</li>
+            <li>Helps prevent matting and skin irritation</li>
+            <li>Keeps your pup cool and comfortable</li>
+            <li>Leaves coat soft, shiny, and fresh-smelling</li>
           </ul>
         </div>
 
-        <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <p className="text-green-700 font-medium">
-            Limited time offer for March only!
+        <div className="bg-red-50 p-4 rounded-lg mb-6">
+          <p className="text-red-700 font-medium">
+            Limited time offer for April only!
           </p>
         </div>
 
         <div className="space-y-4">
-          <div className="bg-green-50 p-3 md:p-4 rounded-lg">
-            <p className="text-green-800 font-medium">
-              💡 Pro Tip: Schedule a grooming appointment and add the tea tree conditioner treatment for the ultimate spring refresh!
+          <div className="bg-red-50 p-3 md:p-4 rounded-lg">
+            <p className="text-red-800 font-medium">
+              💡 Pro Tip: Perfect for double-coated breeds like huskies, shepherds, labs, and corgis!
             </p>
           </div>
           <p className="text-gray-600">
-            Book your grooming appointment today and take advantage of this special offer!
+            Say goodbye to excessive shedding - book your appointment today!
           </p>
           <div className="flex flex-col space-y-2">
             <p className="text-gray-600">
               Call or Text: <a href="tel:737-263-7002" className="text-red-600 hover:text-red-800">(737)-263-7002</a>
             </p>
+            <p className="text-gray-600">
+              Email: <a href="mailto:info@jcoatx.com" className="text-red-600 hover:text-red-800">info@jcoatx.com</a>
+            </p>
             <p className="text-sm text-gray-500">
-              Just mention "Spring Tea Tree Special" when booking!
+              Just mention "Spring Deshedding Special" when booking!
             </p>
           </div>
         </div>
