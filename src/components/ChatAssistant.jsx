@@ -1,10 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import MarchBlog from "./MarchBlog";
+import AprBlog from "./AprBlog";
+import MayBlog from "./MayBlog";
 
 const categories = [
   { id: 'pricing', label: '💰 Pricing', question: 'I would like to know about pricing' },
   { id: 'services', label: '✂️ Services', question: 'What services do you offer?' },
+  { id: 'dental', label: '🦷 Dental Care', question: 'Tell me about dental care services' },
+  { id: 'deshedding', label: '🐾 Deshedding', question: 'Tell me about deshedding services' },
+  { id: 'skincare', label: '🌼 Spring Skin Care', question: 'Tell me about skin care services' },
   { id: 'booking', label: '📅 Booking', question: 'How can I book an appointment?' },
   { id: 'location', label: '📍 Location', question: 'Where are you located?' },
   { id: 'hours', label: '🕒 Hours', question: 'What are your operating hours?' },
@@ -132,6 +138,67 @@ Each bath service includes a complimentary bandana or bow, fresh breath spray, a
 
 Each grooming service includes a complimentary bandana or bow, fresh breath spray, and pet-safe cologne! 🦴`
   },
+  { id: 'dental', label: '🦷 Dental Care',
+    description: `Professional Teeth Cleaning Service
+🦷 Why Dental Care Matters:
+• Prevents bad breath and gum disease
+• Improves overall health
+• Reduces risk of heart and kidney problems
+• Makes your pup more comfortable
+
+✨ Our Service Includes:
+• Complete teeth cleaning
+• Plaque and tartar removal
+• Gum health check
+• Fresh breath treatment
+
+🎉 Special Offer: 20% OFF teeth cleaning this May!
+
+Want to learn more? Ask about our May dental health special!`,
+    hasMore: true,
+    blogComponent: <MayBlog />
+  },
+  { id: 'deshedding', label: '🐾 Deshedding Treatment',
+    description: `Professional Deshedding Service
+🐾 Why Deshedding Matters:
+• Reduces shedding by up to 80%
+• Prevents matting and skin irritation
+• Keeps your pup cool and comfortable
+• Less fur around your home
+
+✨ Our Service Includes:
+• Specialized deshedding treatment
+• Thorough brushing session
+• Removal of loose undercoat
+• Coat health assessment
+
+🎉 Special Offer: $3 OFF deshedding treatment this April!
+
+Want to learn more? Ask about our Spring deshedding special!`,
+    hasMore: true,
+    blogComponent: <AprBlog />
+  },
+  { id: 'skincare', label: '🌼 Spring Skin Care',
+    description: `Spring Skin Care Treatment
+🌼 Why Skin Care Matters:
+• Prevents dry, flaky skin
+• Reduces seasonal allergies
+• Maintains a healthy coat
+• Soothes irritation
+
+✨ Our Service Includes:
+• Tea tree shampoo treatment
+• Moisturizing conditioner
+• Skin assessment
+• Dietary recommendations
+
+🎉 Special Offer: 25% OFF tea tree shampoo treatment!
+
+Want to learn more? Ask about our Spring skin care tips!`,
+    hasMore: true,
+    blogComponent: <MarchBlog />
+  },
+
   { id: 'fff', label: '🐶 Feet, Face & Fanny (FFF)',
     description: `Quick Touch-Up Service - Starting at $35
 • Face trimming
@@ -141,7 +208,7 @@ Each grooming service includes a complimentary bandana or bow, fresh breath spra
 
 A great option to keep your pup fresh between full grooming appointments!`
   },
-  { id: 'walkin', label: '💅 Walk-In Services',
+  { id: 'walkin', label: '💪 Walk-In Services',
     description: `Individual Services:
 • Nail trim only: $18
 • Nail trim with dremel: $22
@@ -151,20 +218,38 @@ No appointment needed for these quick services!`
   }
 ];
 
+const blogPosts = [
+  {
+    id: 'may-2024',
+    title: 'May Dental Health Special',
+    preview: 'Learn about dental health for your dog and get 20% off teeth cleaning!',
+    component: <MayBlog />
+  },
+  {
+    id: 'april-2024',
+    title: 'Spring Shedding Special',
+    preview: 'Get $3 off deshedding treatment this April!',
+    component: <AprBlog />
+  },
+  {
+    id: 'march-2024',
+    title: 'Spring Skin Care Tips',
+    preview: 'Learn about caring for your dog\'s skin during seasonal changes.',
+    component: <MarchBlog />
+  }
+];
+
 const ChatAssistant = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [messages, setMessages] = useState([
     {
       type: 'bot',
-      text: '👋 Welcome to Jameson & Company Dog Grooming! How can I help you today?'
-    },
-    {
-      type: 'bot',
-      text: 'Please select a category to get started:',
+      text: "Hi! I'm your virtual assistant. How can I help you today?",
       isCategories: true
     }
   ]);
   const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedHairType, setSelectedHairType] = useState(null);
   const chatContainerRef = useRef(null);
 
   const scrollToLatestMessage = () => {
@@ -230,27 +315,31 @@ const ChatAssistant = () => {
   };
 
   const handleCategoryClick = (category) => {
-    setMessages([...messages, { type: 'user', text: category.question }]);
-
     if (category.id === 'pricing') {
-      setMessages(prev => [...prev, 
-        { type: 'bot', text: 'Please select your dog\'s size:' },
-        { type: 'bot', text: '', isDogSizes: true }
+      setMessages([...messages, 
+        { text: category.question, isUser: true },
+        { text: "What size is your dog?", isBot: true, isDogSizes: true }
       ]);
     } else if (category.id === 'services') {
-      setMessages(prev => [...prev,
-        { type: 'bot', text: 'Which service would you like to learn more about?' },
-        { type: 'bot', text: '', isServiceTypes: true }
+      setMessages([...messages,
+        { text: category.question, isUser: true },
+        { text: commonQuestions[category.id], isBot: true, isServiceTypes: true }
+      ]);
+    } else if (['dental', 'deshedding', 'skincare'].includes(category.id)) {
+      const service = serviceTypes.find(s => s.id === category.id);
+      setMessages([...messages,
+        { text: category.question, isUser: true },
+        { text: service.description, isBot: true, showLearnMore: true, blogComponent: service.blogComponent }
       ]);
     } else if (category.id === 'booking') {
-      setMessages(prev => [...prev, 
-        { type: 'bot', text: commonQuestions[category.id], isBookingResponse: true },
-        { type: 'bot', text: 'Would you like to ask another question?', showAskAnother: true }
+      setMessages([...messages,
+        { text: category.question, isUser: true },
+        { text: commonQuestions[category.id], isBot: true, isBookingResponse: true }
       ]);
     } else {
-      setMessages(prev => [...prev, 
-        { type: 'bot', text: commonQuestions[category.id] },
-        { type: 'bot', text: 'Would you like to ask another question?', showAskAnother: true }
+      setMessages([...messages,
+        { text: category.question, isUser: true },
+        { text: commonQuestions[category.id], isBot: true, showAskAnother: true }
       ]);
     }
   };
@@ -425,6 +514,26 @@ const ChatAssistant = () => {
                         >
                           ❓ Ask Another Question
                         </button>
+                      </div>
+                    )}
+                    {message.showLearnMore && (
+                      <div className="mt-4">
+                        <button
+                          onClick={() => {
+                            setMessages([...messages,
+                              { text: "I'd like to learn more about dental care", isUser: true },
+                              { text: "Here's our detailed guide about dental care:", isBot: true, blogComponent: message.blogComponent, showAskAnother: true }
+                            ]);
+                          }}
+                          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors"
+                        >
+                          Learn More About Dental Care
+                        </button>
+                      </div>
+                    )}
+                    {message.blogComponent && (
+                      <div className="mt-4 bg-white rounded-lg p-4 overflow-auto max-h-[70vh]">
+                        {message.blogComponent}
                       </div>
                     )}
                   </div>

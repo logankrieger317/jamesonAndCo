@@ -4,6 +4,7 @@ import DecBlog from "./DecBlog";
 import FebBlog from "./FebBlog";
 import MarchBlog from "./MarchBlog";
 import AprBlog from "./AprBlog";
+import MayBlog from "./MayBlog";
 import Header from "./Header"; // Import the Header component
 import Footer from "./Footer"; // Import the Footer component
 import {
@@ -35,6 +36,24 @@ interface BlogPost {
 const BlogPage: React.FC = () => {
   // This array will hold all blog posts
   const blogPosts: BlogPost[] = [
+    {
+      id: "may-2024",
+      component: <MayBlog />,
+      title: "Keep Your Dog's Smile Bright This May!",
+      preview: "Learn about the importance of dental health for your dog and enjoy 20% off teeth cleaning services this May at Jameson & Co.",
+      author: "Hailey",
+      datePublished: "2024-05-01",
+      lastModified: "2024-05-01",
+      image: "/images/dog-dental-care.jpg",
+      tags: [
+        "dental health",
+        "teeth cleaning",
+        "pet care",
+        "Austin pet grooming",
+        "dog wellness"
+      ],
+      category: "Pet Health"
+    },
     {
       id: "april-2024",
       component: <AprBlog />,
