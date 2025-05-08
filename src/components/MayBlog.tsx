@@ -140,7 +140,7 @@ const MayBlog: React.FC = () => {
               <ListItemIcon>
                 <StarIcon sx={{ color: "#dc2626" }} />
               </ListItemIcon>
-              <ListItemText primary="Remove plaque and tartar buildup" />
+              <ListItemText primary="Remove plaques build up" />
             </ListItem>
             <ListItem>
               <ListItemIcon>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -60,7 +60,7 @@ const DiscountModal = ({ isOpen, onClose }) => {
         <div className="text-left mb-4">
           <h4 className="text-lg font-semibold text-gray-800 mb-2">Treatment Benefits:</h4>
           <ul className="list-disc list-inside text-gray-600 space-y-2">
-            <li>Removes plaque and tartar buildup</li>
+            <li>Removes plaque buildup</li>
             <li>Prevents gum disease and tooth loss</li>
             <li>Improves overall health and wellness</li>
             <li>Leaves your dog's breath fresher and cleaner</li>
