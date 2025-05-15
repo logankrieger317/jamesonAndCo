@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import {
   Typography,
@@ -16,7 +16,9 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import StarIcon from "@mui/icons-material/Star";
 
+
 const MayBlog: React.FC = () => {
+
   const blogMetadata = {
     title:
       "May Dental Health Special - Keep Your Dog's Smile Bright | Jameson & Co Dog Grooming",
@@ -221,6 +223,7 @@ const MayBlog: React.FC = () => {
           </Typography>
         </Box>
       </Paper>
+
     </>
   );
 };

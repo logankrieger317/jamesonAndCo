@@ -10,7 +10,7 @@ import Map from "../components/Map";
 import BackToSchoolModal from "./BackToSchoolModal";
 import UserInfoModal from "./UserInfoModal";
 import OOOModal from "./OOOModal";
-import DiscountModal from "./DiscountModal";
+import TimeBasedModal from "./TimeBasedModal";
 import ChatAssistant from "./ChatAssistant";
 import { trackBookNowClick } from '../services/analytics';
 
@@ -91,7 +91,7 @@ const Home = () => {
   return (
     <>
       {/* <OOOModal /> */}
-      <DiscountModal 
+      <TimeBasedModal 
         isOpen={showDiscountModal}
         onClose={() => setShowDiscountModal(false)}
       />
