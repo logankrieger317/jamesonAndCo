@@ -46,7 +46,7 @@ const FundraiserModal = ({ isOpen, onClose }) => {
         <div className="bg-gray-50 p-4 md:p-6 rounded-lg mb-4">
           <div className="mb-4">
             <img 
-              src="https://asset.cloudinary.com/dfszr2lob/695be8ebaf54945d0abc6d62171d2b6d"
+              src="https://res.cloudinary.com/dfszr2lob/image/upload/v1747348392/ModernRootsFundraiser_ym2osi.jpg"
               style={{ maxWidth: '100%', height: 'auto' }} 
               alt="Modern Roots PAWS Fundraiser" 
               className="w-full rounded-lg shadow-md"
