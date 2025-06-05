@@ -57,6 +57,21 @@ export default function Terms() {
                 </p>
               </div>
 
+              <div>
+                <h2 className="font-semibold mb-2">6. Promotions and Referral Programs</h2>
+                <p>
+                  - Jameson & Company Dog Grooming reserves the right to cancel, modify, or discontinue any promotion or referral program at any time without prior notice.<br/>
+                  - Promotional discounts will only be applied after the referred customer has booked a full groom service, the service has been completed, and payment has been received in full.<br/>
+                  - The 10% referral discount may be redeemed by the referrer for a full groom service only and cannot be applied to other services or products.<br/>
+                  - No cash value will be provided for any promotional discount or referral credit.<br/>
+                  - All promotional discounts and referral credits must be claimed and used within the 2025 calendar year.<br/>
+                  - Referral discounts will only be provided to the referrer if the referred party books thier service during June 2025 and completes the service within 90 days of the initial referral.<br/>
+                  - Promotional offers cannot be combined with other discounts, coupons, or special offers unless explicitly stated.<br/>
+                  - Jameson & Company Dog Grooming reserves the right to verify referral relationships and may request documentation or proof of referral.<br/>
+                  - Abuse of promotional programs, including but not limited to fraudulent referrals or false information, may result in disqualification from current and future promotions.
+                </p>
+              </div>
+
               <p className="mt-8 text-sm text-gray-600">
                 Please note that we may change these terms and conditions at any time without notice. Any changes will be posted on this page. If you have any questions, please contact us at info@jcoatx.com
               </p>
