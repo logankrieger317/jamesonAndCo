@@ -1,4 +1,4 @@
-import haileyImage from '../Images/optimized/IMG_5380.webp';
+import haileyImage from '../../Images/optimized/IMG_5380.webp';
 
 const people = [
   {

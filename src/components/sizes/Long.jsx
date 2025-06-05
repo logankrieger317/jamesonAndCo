@@ -1,5 +1,5 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 
 const services = [
@@ -17,7 +17,7 @@ const services = [
   
 ]
 
-export default function Short() {
+export default function Long() {
 
     return (
         <>

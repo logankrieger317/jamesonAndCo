@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
-import MarchBlog from "./MarchBlog";
-import AprBlog from "./AprBlog";
-import MayBlog from "./MayBlog";
+import MarchBlog from "../blog/posts/MarchBlog";
+import AprBlog from "../blog/posts/AprBlog";
+import MayBlog from "../blog/posts/MayBlog";
 
 const categories = [
   { id: 'pricing', label: '💰 Pricing', question: 'I would like to know about pricing' },

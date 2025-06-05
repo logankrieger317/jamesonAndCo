@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import reviews from './reviewsData';
+import reviews from '../data/reviewsData';
 
 export default function Reviews() {
   const [currentPage, setCurrentPage] = useState(1);

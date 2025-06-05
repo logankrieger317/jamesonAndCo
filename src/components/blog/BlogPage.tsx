@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import NovBlog from "./NovBlog";
-import DecBlog from "./DecBlog";
-import FebBlog from "./FebBlog";
-import MarchBlog from "./MarchBlog";
-import AprBlog from "./AprBlog";
-import MayBlog from "./MayBlog";
-import Header from "./Header"; // Import the Header component
-import Footer from "./Footer"; // Import the Footer component
+import NovBlog from "./posts/NovBlog";
+import DecBlog from "./posts/DecBlog";
+import FebBlog from "./posts/FebBlog";
+import MarchBlog from "./posts/MarchBlog";
+import AprBlog from "./posts/AprBlog";
+import MayBlog from "./posts/MayBlog";
+import Header from "../layout/Header"; // Import the Header component
+import Footer from "../layout/Footer"; // Import the Footer component
 import {
   Container,
   Typography,

@@ -1,9 +1,9 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 
 const services = [
-  { name: 'Deluxe', description: 'Full Wash, Nail Trim', price: '$55' },
+  { name: 'Deluxe', href:'Book', description: 'Full Wash, Nail Trim', price: '$55' },
   { name: 'Furminator', description: 'Deshedding, Shampoo and Conditioner', price: '$30' },
   { name: 'Pawdicure', description: 'Nail Trim, Paw Massage', price: '$25' },
   { name: 'Puppy Package', description: 'Gentle Bath, Brushing, Ear Cleaning', price: '$40' },
@@ -17,7 +17,7 @@ const services = [
   
 ]
 
-export default function Small() {
+export default function Large() {
 
     return (
         <>

@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
-import Header from "../components/Header";
-import Carousel from "../components/Carousel";
-import Peoples from "../components/People";
-import Reviews from "../components/Reviews";
-import Footer from "./Footer";
-import Map from "../components/Map";
-import BackToSchoolModal from "./BackToSchoolModal";
-import UserInfoModal from "./UserInfoModal";
-import OOOModal from "./OOOModal";
-import TimeBasedModal from "./TimeBasedModal";
-import ChatAssistant from "./ChatAssistant";
-import { trackBookNowClick } from '../services/analytics';
+import Header from "../layout/Header";
+import Carousel from "../ui/Carousel";
+import Peoples from "../features/People";
+import Reviews from "../ui/Reviews";
+import Footer from "../layout/Footer";
+import Map from "../ui/Map";
+import BackToSchoolModal from "../modals/BackToSchoolModal";
+import UserInfoModal from "../modals/UserInfoModal";
+import OOOModal from "../modals/OOOModal";
+import TimeBasedModal from "../modals/TimeBasedModal";
+import ChatAssistant from "../ui/ChatAssistant";
+import { trackBookNowClick } from '../../services/analytics';
 
 const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 const tiers = [

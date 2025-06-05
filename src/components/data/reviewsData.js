@@ -1,4 +1,4 @@
-import DefaultReviewIcon from "../Images/defaultIcon";
+import DefaultReviewIcon from "../../Images/defaultIcon";
 
 const reviews = [
   {

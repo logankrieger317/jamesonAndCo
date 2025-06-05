@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 // import OutOfOfficeHeader from './OutOfOfficeHeader';
-import { trackBookNowClick } from '../services/analytics';
+import { trackBookNowClick } from '../../services/analytics';
 import mixpanel from 'mixpanel-browser';
 
 interface NavigationItem {

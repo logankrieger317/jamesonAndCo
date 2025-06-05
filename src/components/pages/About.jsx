@@ -1,6 +1,6 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import Reviews from "./Reviews";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
+import Reviews from "../ui/Reviews";
 
 const About = () => {
   return (
