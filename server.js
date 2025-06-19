@@ -11,6 +11,18 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
+// Redirect apex domain to www
+app.use((req, res, next) => {
+  if (
+    req.headers.host === 'jcoatx.com' ||
+    req.headers.host === 'jcoatx.com:80' ||
+    req.headers.host === 'jcoatx.com:443'
+  ) {
+    return res.redirect(301, 'https://www.jcoatx.com' + req.originalUrl);
+  }
+  next();
+});
+
 // Enable compression
 app.use(compression());
 
