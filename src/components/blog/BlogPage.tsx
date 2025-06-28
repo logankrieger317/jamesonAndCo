@@ -5,6 +5,7 @@ import FebBlog from "./posts/FebBlog";
 import MarchBlog from "./posts/MarchBlog";
 import AprBlog from "./posts/AprBlog";
 import MayBlog from "./posts/MayBlog";
+import KyleBudaBlog from "./posts/KyleBudaBlog";
 import Header from "../layout/Header"; // Import the Header component
 import Footer from "../layout/Footer"; // Import the Footer component
 import {
@@ -150,7 +151,27 @@ const BlogPage: React.FC = () => {
       ],
       category: "Holiday Pet Care",
     },
-    // Add more blog posts here as they are created
+    {
+      id: "austin-kyle-buda-2025",
+      component: <KyleBudaBlog />,
+      title: "Dog Grooming Services in Austin, Kyle & Buda, Texas",
+      preview: "Professional dog grooming services conveniently located for Austin, Kyle and Buda, Texas residents. Serving South Austin, Plum Creek, Steeplechase, Garlic Creek, Whispering Hollow and surrounding areas.",
+      author: "Hailey",
+      datePublished: "2025-01-15",
+      lastModified: "2025-01-15",
+      image: "/images/austin-kyle-buda-dog-grooming.jpg",
+      tags: [
+        "dog grooming Austin TX",
+        "dog grooming Kyle TX", 
+        "dog grooming Buda TX",
+        "South Austin dog groomer",
+        "Plum Creek dog groomer",
+        "local pet services",
+        "Austin metro area",
+        "Hays County pet care"
+      ],
+      category: "Local Services"
+    },
   ];
 
   const [openBlog, setOpenBlog] = useState<string | null>(null);

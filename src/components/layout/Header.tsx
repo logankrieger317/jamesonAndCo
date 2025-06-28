@@ -23,6 +23,7 @@ const navigation: NavigationItem[] = [
       mixpanel.track('Book Now Clicked', { 'Location': 'Header' });
     } 
   },
+  { name: 'Locations', href: '/locations' },
   { name: 'Blog', href: '/blog' }
 ];
 

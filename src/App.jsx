@@ -3,6 +3,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Contact from './components/pages/Contact';
 import Services from './components/pages/Services';
+import Locations from './components/pages/Locations';
 import Book from './components/ui/Book';
 import Terms from './components/pages/Terms';
 import Privacy from './components/pages/Privacy';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/locations" element={<Locations />} />
         <Route path="/book" element={<Book />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />

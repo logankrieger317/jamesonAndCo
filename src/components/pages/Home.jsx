@@ -10,7 +10,7 @@ import Map from "../ui/Map";
 import BackToSchoolModal from "../modals/BackToSchoolModal";
 import UserInfoModal from "../modals/UserInfoModal";
 import OOOModal from "../modals/OOOModal";
-import JuneReferralModal from "../modals/JuneReferralModal";
+import JulyFreedomModal from "../modals/JulyFreedomModal";
 import ChatAssistant from "../ui/ChatAssistant";
 import { trackBookNowClick } from '../../services/analytics';
 
@@ -91,7 +91,7 @@ const Home = () => {
   return (
     <>
       {/* <OOOModal /> */}
-      <JuneReferralModal 
+      <JulyFreedomModal 
         isOpen={showDiscountModal}
         onClose={() => setShowDiscountModal(false)}
       />
@@ -127,6 +127,9 @@ const Home = () => {
                 experience so that all pups leave Jameson & Company well-groomed
                 and feeling happy. Thank you for choosing us for your grooming
                 needs.
+              </p>
+              <p className="mt-4 text-base leading-7 text-gray-500">
+                <strong>Serving Kyle, Buda, and the Greater Austin Area:</strong> Located at 820 FM1626 in Austin, we're conveniently accessible to Kyle (Plum Creek, Steeplechase), Buda (Garlic Creek, Whispering Hollow), and surrounding communities. Professional dog grooming services for all breeds and sizes.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
