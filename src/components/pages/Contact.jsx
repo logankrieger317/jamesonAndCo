@@ -10,7 +10,7 @@ export default function Example() {
         <img
           className="h-64 w-full bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full"
           src="https://www.akc.org/wp-content/uploads/2019/07/Poodle-getting-its-nails-trimmer-at-the-grooming-salon.jpg"
-          alt=""
+          alt="Professional dog grooming - Poodle getting nails trimmed at grooming salon"
         />
       </div>
       <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">

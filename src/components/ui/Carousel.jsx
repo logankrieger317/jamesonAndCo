@@ -69,7 +69,6 @@ export default function Carousel() {
           '--swiper-navigation-color': '#fff',
           '--swiper-pagination-color': '#fff',
         }}
-        preloadImages={false}
         watchSlidesProgress={true}
       >
         {images.map((image, index) => (
