@@ -10,7 +10,7 @@ import Map from "../ui/Map";
 import BackToSchoolModal from "../modals/BackToSchoolModal";
 import UserInfoModal from "../modals/UserInfoModal";
 import OOOModal from "../modals/OOOModal";
-import JulyFreedomModal from "../modals/JulyFreedomModal";
+import FleaModal from "../modals/FleaModal";
 import ChatAssistant from "../ui/ChatAssistant";
 import { trackBookNowClick } from '../../services/analytics';
 
@@ -91,7 +91,7 @@ const Home = () => {
   return (
     <>
       {/* <OOOModal /> */}
-      <JulyFreedomModal 
+      <FleaModal 
         isOpen={showDiscountModal}
         onClose={() => setShowDiscountModal(false)}
       />

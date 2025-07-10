@@ -6,6 +6,7 @@ import MarchBlog from "./posts/MarchBlog";
 import AprBlog from "./posts/AprBlog";
 import MayBlog from "./posts/MayBlog";
 import KyleBudaBlog from "./posts/KyleBudaBlog";
+import FleaBlog from "./posts/FleaBlog";
 import Header from "../layout/Header"; // Import the Header component
 import Footer from "../layout/Footer"; // Import the Footer component
 import {
@@ -38,6 +39,27 @@ interface BlogPost {
 const BlogPage: React.FC = () => {
   // This array will hold all blog posts
   const blogPosts: BlogPost[] = [
+    {
+      id: "flea-alert-2024",
+      component: <FleaBlog />,
+      title: "Flea Alert: Protecting Your Pup During High Humidity Season",
+      preview: "Learn about the recent flea surge due to humid weather and how Jameson & Co's flea & tick shampoo treatment can protect your dog from these pesky parasites.",
+      author: "Hailey",
+      datePublished: "2024-08-01",
+      lastModified: "2024-08-01",
+      image: "/images/flea-prevention-dog.jpg",
+      tags: [
+        "flea treatment",
+        "tick prevention",
+        "dog grooming",
+        "Austin pet care",
+        "humid weather",
+        "flea shampoo",
+        "parasite control",
+        "professional grooming"
+      ],
+      category: "Pet Health"
+    },
     {
       id: "may-2024",
       component: <MayBlog />,
