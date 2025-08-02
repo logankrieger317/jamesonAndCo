@@ -218,7 +218,7 @@ No appointment needed for these quick services!`
   }
 ];
 
-const blogPosts = [
+const _blogPosts = [
   {
     id: 'may-2024',
     title: 'May Dental Health Special',
@@ -249,7 +249,6 @@ const ChatAssistant = () => {
     }
   ]);
   const [selectedSize, setSelectedSize] = useState(null);
-  const [selectedHairType, setSelectedHairType] = useState(null);
   const chatContainerRef = useRef(null);
 
   const scrollToLatestMessage = () => {

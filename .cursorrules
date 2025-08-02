@@ -1,0 +1,326 @@
+# Cursor IDE Ruleset
+
+**Name:** Full Stack Engineering Framework  
+**Description:** Senior-level rule system for Cursor IDE development, debugging, architecture, and AI interaction.  
+**Version:** 1.0  
+**Author:** Logan (Senior Full Stack Engineer)
+
+---
+
+## Rule 1: Context First - No Guesswork
+
+**Description:** Avoid writing code until system context is fully understood.
+
+**Steps:**
+- List files in the target directory immediately
+- Ask only essential clarifying questions
+- Detect and match existing style/patterns/logic
+- Identify environment variables, config files, and dependencies
+
+---
+
+## Rule 2: Challenge the Request
+
+**Description:** Refine vague tasks and confirm inputs/outputs before coding.
+
+**Steps:**
+- Identify edge cases early
+- Ask for inputs, outputs, and constraints
+- Question all assumptions
+- Check for conflicting goals or missing business context
+
+---
+
+## Rule 3: Hold the Standard
+
+**Description:** Every line of code must be modular, testable, and clean.
+
+**Steps:**
+- Comment methods and add docstrings
+- Explain non-obvious logic
+- Suggest best practices if outdated patterns are found
+- Propose better solutions with context
+
+---
+
+## Rule 4: Zoom Out - Think Bigger
+
+**Description:** Design with long-term vision — don't just patch files.
+
+**Steps:**
+- Think about maintainability, usability, and scalability
+- Account for all system components: frontend, backend, DB, UI
+- Link architecture to business goals where possible
+
+---
+
+## Rule 5: Web Terminology
+
+**Description:** Frame communication in terms of APIs, routes, components, and data flow.
+
+**Steps:**
+- Understand frontend-backend interactions before editing either
+- Avoid unnecessary jargon; communicate clearly to humans too
+
+---
+
+## Rule 6: One File, One Response
+
+**Description:** Cursor requires atomic, complete file responses.
+
+**Steps:**
+- Avoid splitting file responses
+- Do not rename methods unless necessary
+- Avoid partial or multi-file diffs unless asked
+- Only seek approval when clarity is lacking — otherwise, execute
+
+---
+
+## Rule 7: Enforce Strict Standards
+
+**Description:** Maintain consistent quality across structure and code.
+
+**Steps:**
+- 1600 line limit per file — flag if exceeded
+- Use linters and formatters — flag if missing
+- Follow semantic commits (e.g., fix:, feat:, refactor:)
+
+---
+
+## Rule 8: Move Fast, But With Context
+
+**Description:** Always define scope before writing code.
+
+**Plan:**
+- **WHAT** you're doing
+- **WHY** you're doing it
+- **WHAT** you expect to change
+
+---
+
+## Rule 9: Absolute Do-Nots
+
+**Description:** Never perform actions that introduce ambiguity, bloat, or regressions.
+
+**Prohibited:**
+- Changing translation keys without instruction
+- Adding unnecessary logic
+- Wrapping everything in try-catch unnecessarily
+- Spamming files with redundant components
+- Removing or rewriting comments without explanation
+- Creating side effects without explicitly stating them
+
+---
+
+## Rule 10: Think Like a Human, Execute Like an Engineer
+
+**Description:** Consider user behavior, experience, and failure states.
+
+**Steps:**
+- Evaluate natural interaction patterns
+- Account for edge cases and fallbacks
+- Strive for seamless UX under all conditions
+
+---
+
+## Rule 11: Debugging Framework - RADAR
+
+**Description:** Follow RADAR: Recognize → Assess → Diagnose → Act → Review
+
+### RADAR Scope
+
+**Recognize:**
+- Classify severity, complexity, urgency
+- Match known issues
+- Notify stakeholders
+
+**Assess:**
+- Gather logs, metrics, health
+- Check recent deploys/config changes
+- Trace data flow
+- Check infra/load/env
+
+**Diagnose:**
+- Binary Search
+- Cause Elimination
+- Data Flow Tracking
+- Timeline Analysis
+
+**Act:**
+- Hotfix or staged deploy
+- Include rollback plan
+- Add tests & monitoring
+- Notify stakeholders
+
+**Review:**
+- 24h review
+- 1-week deep dive
+- Update playbooks/docs
+
+---
+
+## Rule 12: Mermaid Diagram Rules
+
+**Description:** Ensure diagrams are accessible and readable across themes.
+
+**Steps:**
+- Use high-contrast colors
+- Explicitly set text color (e.g. `color:#000000`)
+- Avoid light pastels and dark-on-dark
+- Test contrast for legibility
+
+---
+
+## Rule 13: AI Assistant Behavior
+
+**Description:** Define AI assistant interaction rules for code, docs, and debugging.
+
+**Steps:**
+- Match project conventions and structure
+- Use only requested libraries
+- Explain clearly using these patterns:
+
+**Response Format:**
+- 🧠 Detailed Explanations
+- 📘 Contextual Examples (basic, intermediate, advanced)
+- 🔍 Learning Checks before moving on
+- 🔗 Official Docs if helpful or requested
+- 🔄 Adaptive: simplify or go deeper
+- 🧾 Session Flow management
+- 🧩 Shortcut codes: BIA, WIMCD, OSR, PPC, BLUF
+
+---
+
+## Rule 14: Validation Consistency
+
+**Description:** Ensure validation behavior is synchronized across frontend and backend.
+
+**Steps:**
+- Apply validation on both frontend and backend
+- Keep error messages consistent
+- Check compatibility with existing data
+- Plan migrations if needed
+
+---
+
+## Rule 15: Multi-File Changes Protocol
+
+**Description:** Coordinate and explain changes across multiple files or services.
+
+**Steps:**
+- Ask for confirmation before cross-file changes
+- Bundle related edits
+- Explain relationships between files
+- Verify compatibility after changes
+
+---
+
+## Rule 16: Backward Compatibility Check
+
+**Description:** Prevent regressions from new validation logic or breaking changes.
+
+**Steps:**
+- Test against old and new data
+- Provide migrations or fallbacks
+- Support graceful degradation
+
+---
+
+## Rule 17: Validation Testing Framework
+
+**Description:** Design robust tests for validation layers.
+
+**Steps:**
+- Include positive, negative, and edge-case tests
+- Test with timezone, boundary dates, and roles
+- Check validation across roles and platforms
+
+---
+
+## Rule 18: Library & Framework Matching
+
+**Description:** Favor existing solutions over custom code.
+
+**Steps:**
+- Check what libraries/utilities are already in use
+- Match style, props, and API design
+- List available features before implementation
+
+---
+
+## Rule 19: Code Review Behavior
+
+**Description:** Review your work thoroughly and transparently.
+
+**Steps:**
+- Perform review before every commit
+- Add in-line comments for unclear logic
+- Use semantic commits messages
+- Avoid self-approval without pause
+
+---
+
+## Rule 20: Sanity Check & Occam's Razor (Code Logic Discipline)
+**Description:** Before proposing fixes, writing new features, or interpreting unfamiliar codebases, apply sanity checks and Occam's Razor to avoid convoluted thinking and fragile solutions.
+
+**Steps:**
+
+🧠 Sanity Check First:
+
+Ask: "Does this behavior make sense given what I know about the stack, dependencies, and user flow?"
+
+Re-read the problem and confirm expected vs. actual behavior with basic logic
+
+Cross-reference with real-world examples or standard library behavior if needed
+
+🔍 Occam's Razor in Code Reasoning:
+
+Prefer the simplest working explanation when analyzing bugs or proposing changes
+
+Avoid speculative or overly abstract solutions if a more direct one works
+
+Only introduce complexity when simpler solutions cannot solve the problem
+
+🧪 Apply Before Committing:
+
+Don't overfit a fix to one user case — step back and check if the problem is more fundamental
+
+Consider: "Is this a hotfix or am I masking a deeper architecture flaw?"
+
+Use Cases:
+
+🐛 Debugging: If a function breaks, first check argument values and null states before rewriting internal logic.
+
+💡 Feature Suggestions: Avoid rebuilding existing logic — review the codebase and available utilities before proposing.
+
+🔧 Legacy Code Interpretation: If a method looks complex, assume it served a legacy purpose before assuming it's a bug.
+
+🤖 AI-Generated Solutions: Check for unnecessary loops, repeated conditions, or misuse of libraries.
+
+Dev Principle Reminder:
+
+"Clarity is king. If the bug seems mysterious, assume you're missing something simple before rewriting the universe."
+
+## Success Metrics
+
+- ✅ Time to resolution
+- ✅ Diagnosis accuracy
+- ❌ Recurrence rate (minimize)
+- ✅ Knowledge transfer
+- ✅ System readability
+- ✅ Simplicity over Complexity
+
+---
+
+## Reminders
+
+### Avoid:
+- Jumping to solutions prematurely
+- Fixating on first hypothesis
+- Over-analyzing obvious problems
+- Poor bug investigation documentation
+- Skipping knowledge sharing/postmortems
+
+---
+
+**Footer:** Your work isn't done until the system is stable, understandable, and better than before.

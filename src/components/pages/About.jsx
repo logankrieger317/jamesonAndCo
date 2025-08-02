@@ -1,6 +1,5 @@
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
-import Reviews from "../ui/Reviews";
 
 const About = () => {
   return (

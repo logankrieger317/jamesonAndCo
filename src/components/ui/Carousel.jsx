@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -40,10 +40,10 @@ export default function Carousel() {
   };
 
   // Generate optimized image URL
-  const getOptimizedImageUrl = (imageName) => {
+  const getOptimizedImageUrl = useCallback((imageName) => {
     const suffix = getImageSizeSuffix();
     return `/img-cache/${imageName}-${suffix}.webp`;
-  };
+  }, [windowWidth, getImageSizeSuffix]);
 
   // Preload the next few images
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function Carousel() {
       const img = new Image();
       img.src = getOptimizedImageUrl(image.name);
     });
-  }, [windowWidth]);
+  }, [windowWidth, getOptimizedImageUrl]);
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4">

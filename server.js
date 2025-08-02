@@ -26,8 +26,8 @@ app.use((req, res, next) => {
 // Enable compression
 app.use(compression());
 
-// Cache control middleware
-const cacheControl = (duration) => {
+// Cache control middleware (for future use)
+const _cacheControl = (duration) => {
   return (req, res, next) => {
     res.set('Cache-Control', `public, max-age=${duration}`);
     next();

@@ -15,6 +15,11 @@ if (MIXPANEL_TOKEN) {
     batch_requests: false,  // Disable batching for testing
     loaded: function(mixpanel) {
       // Mixpanel loaded successfully
+      mixpanel.track('Page Viewed', {
+        $pathname: window.location.pathname,
+        $current_url: window.location.href,
+        environment: import.meta.env.DEV ? 'development' : 'production'
+      });
     }
   });
 

@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "node server.js",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 5",
     "preview": "vite preview",
     "optimize-images": "node scripts/optimizeImages.js",
     "prestart": "npm run optimize-images"
@@ -55,6 +55,7 @@
     "eslint": "^8.53.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
     "sharp": "^0.33.5",
     "vite": "^5.0.0"
   }

@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
 import Header from "../layout/Header";
 import Carousel from "../ui/Carousel";
 import Peoples from "../features/People";
 import Reviews from "../ui/Reviews";
 import Footer from "../layout/Footer";
 import Map from "../ui/Map";
-import BackToSchoolModal from "../modals/BackToSchoolModal";
-import UserInfoModal from "../modals/UserInfoModal";
-import OOOModal from "../modals/OOOModal";
-import FleaModal from "../modals/FleaModal";
+import DogDayModal from "../modals/DogDayModal";
 import ChatAssistant from "../ui/ChatAssistant";
 import { trackBookNowClick } from '../../services/analytics';
 
@@ -70,30 +65,24 @@ const tiers = [
 ];
 
 const Home = () => {
-  const [showUserInfoModal, setShowUserInfoModal] = useState(true);
-  const [isBackToSchoolVisible, setIsBackToSchoolVisible] = useState(false);
-  const [showDiscountModal, setShowDiscountModal] = useState(false)
+  const [showDogDayModal, setShowDogDayModal] = useState(true)
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 
-  // Toggle on window load modal show VS    
+  // Show dog day modal on load
   useEffect(() => {
-    // Show the discount modal after a short delay
-    const timer = setTimeout(() => {
-      setShowDiscountModal(true);
-    }, 1000);
-
-    setIsBackToSchoolVisible(false);
-    setShowUserInfoModal(true);
-
-    return () => clearTimeout(timer);
+    // Could add logic here for showing the dog day modal conditionally
   }, []);
 
   return (
     <>
       {/* <OOOModal /> */}
-      <FleaModal 
+      {/* <FleaModal 
         isOpen={showDiscountModal}
         onClose={() => setShowDiscountModal(false)}
+      /> */}
+      <DogDayModal
+        isOpen={showDogDayModal}
+        onClose={() => setShowDogDayModal(false)}
       />
       <div>
         <ChatAssistant />
