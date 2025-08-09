@@ -18,6 +18,7 @@ import Help from './components/pages/Help';
 import Error from './components/pages/Error';
 import BlogPage from './components/blog/BlogPage';
 import Sales from './components/pages/Sales';
+import QRPoster from './components/ui/QRPoster';
 import './App.css';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/error" element={<Error />} />
+        <Route path="/qr-poster" element={<QRPoster />} />
         {/* Catch-all route to handle undefined paths */}
         <Route path="*" element={<Error />} />
       </Routes>
