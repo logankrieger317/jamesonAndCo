@@ -5,7 +5,6 @@ import Peoples from "../features/People";
 import Reviews from "../ui/Reviews";
 import Footer from "../layout/Footer";
 import Map from "../ui/Map";
-import DogDayModal from "../modals/DogDayModal";
 import ChatAssistant from "../ui/ChatAssistant";
 import { trackBookNowClick } from '../../services/analytics';
 
@@ -65,7 +64,6 @@ const tiers = [
 ];
 
 const Home = () => {
-  const [showDogDayModal, setShowDogDayModal] = useState(true)
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
 
   // Show dog day modal on load
@@ -80,10 +78,6 @@ const Home = () => {
         isOpen={showDiscountModal}
         onClose={() => setShowDiscountModal(false)}
       /> */}
-      <DogDayModal
-        isOpen={showDogDayModal}
-        onClose={() => setShowDogDayModal(false)}
-      />
       <div>
         <ChatAssistant />
         <Header />
