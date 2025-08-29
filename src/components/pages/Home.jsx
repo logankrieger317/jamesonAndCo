@@ -6,6 +6,7 @@ import Reviews from "../ui/Reviews";
 import Footer from "../layout/Footer";
 import Map from "../ui/Map";
 import ChatAssistant from "../ui/ChatAssistant";
+import DogtoberFestModal from "../modals/DogtoberFestModal";
 import { trackBookNowClick } from '../../services/analytics';
 
 const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
@@ -65,10 +66,16 @@ const tiers = [
 
 const Home = () => {
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
+  const [showDogtoberFestModal, setShowDogtoberFestModal] = useState(false);
 
-  // Show dog day modal on load
+  // Show DogtoberFest modal on load
   useEffect(() => {
-    // Could add logic here for showing the dog day modal conditionally
+    // Show modal after a short delay to let the page load
+    const timer = setTimeout(() => {
+      setShowDogtoberFestModal(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -78,6 +85,10 @@ const Home = () => {
         isOpen={showDiscountModal}
         onClose={() => setShowDiscountModal(false)}
       /> */}
+      <DogtoberFestModal 
+        isOpen={showDogtoberFestModal}
+        onClose={() => setShowDogtoberFestModal(false)}
+      />
       <div>
         <ChatAssistant />
         <Header />
