@@ -66,7 +66,7 @@ const tiers = [
 
 const Home = () => {
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
-  const [showDogtoberFestModal, setShowDogtoberFestModal] = useState(false);
+  // const [showDogtoberFestModal, setShowDogtoberFestModal] = useState(false);
 
   // Show DogtoberFest modal on load
   useEffect(() => {
@@ -85,10 +85,10 @@ const Home = () => {
         isOpen={showDiscountModal}
         onClose={() => setShowDiscountModal(false)}
       /> */}
-      <DogtoberFestModal 
+      {/* <DogtoberFestModal 
         isOpen={showDogtoberFestModal}
         onClose={() => setShowDogtoberFestModal(false)}
-      />
+      /> */}
       <div>
         <ChatAssistant />
         <Header />
