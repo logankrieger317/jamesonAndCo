@@ -7,6 +7,7 @@ import AprBlog from "./posts/AprBlog";
 import MayBlog from "./posts/MayBlog";
 import KyleBudaBlog from "./posts/KyleBudaBlog";
 import FleaBlog from "./posts/FleaBlog";
+import AnniversaryBlog from "./posts/AnniversaryBlog";
 import Header from "../layout/Header"; // Import the Header component
 import Footer from "../layout/Footer"; // Import the Footer component
 import {
@@ -39,6 +40,27 @@ interface BlogPost {
 const BlogPage: React.FC = () => {
   // This array will hold all blog posts
   const blogPosts: BlogPost[] = [
+    {
+      id: "anniversary-celebration-2024",
+      component: <AnniversaryBlog />,
+      title: "Three Year Anniversary Celebration - Nail Trims & Spin the Wheel",
+      preview: "Join us October 4th from 10:30 AM to 1:30 PM for our three-year anniversary celebration! Nail trims and spin the wheel to win discounts and prizes.",
+      author: "Hailey",
+      datePublished: "2024-10-01",
+      lastModified: "2024-10-01",
+      image: "/images/anniversary-celebration.jpg",
+      tags: [
+        "anniversary celebration",
+        "nail trims",
+        "discounts",
+        "prizes",
+        "Austin dog grooming",
+        "spin the wheel",
+        "three years",
+        "community event"
+      ],
+      category: "Events"
+    },
     {
       id: "flea-alert-2024",
       component: <FleaBlog />,
@@ -219,7 +241,7 @@ const BlogPage: React.FC = () => {
         name: "Jameson & Co",
         logo: {
           "@type": "ImageObject",
-          url: "https://jamesonandco.com/images/logo.jpg",
+          url: "https://jcoatx.com/assets/Logo.png",
         },
       },
       blogPost: blogPosts.map((post) => ({
@@ -240,7 +262,7 @@ const BlogPage: React.FC = () => {
           name: "Jameson & Co",
           logo: {
             "@type": "ImageObject",
-            url: "https://jamesonandco.com/images/logo.jpg",
+            url: "https://jcoatx.com/assets/Logo.png",
           },
         },
       })),

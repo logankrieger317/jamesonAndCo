@@ -7,6 +7,7 @@ import Footer from "../layout/Footer";
 import Map from "../ui/Map";
 import ChatAssistant from "../ui/ChatAssistant";
 import DogtoberFestModal from "../modals/DogtoberFestModal";
+import AnniversaryModal from "../modals/AnniversaryModal";
 import { trackBookNowClick } from '../../services/analytics';
 
 const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
@@ -66,13 +67,14 @@ const tiers = [
 
 const Home = () => {
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
+  const [showAnniversaryModal, setShowAnniversaryModal] = useState(false);
   // const [showDogtoberFestModal, setShowDogtoberFestModal] = useState(false);
 
-  // Show DogtoberFest modal on load
+  // Show Anniversary modal on load
   useEffect(() => {
     // Show modal after a short delay to let the page load
     const timer = setTimeout(() => {
-      setShowDogtoberFestModal(true);
+      setShowAnniversaryModal(true);
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -89,6 +91,10 @@ const Home = () => {
         isOpen={showDogtoberFestModal}
         onClose={() => setShowDogtoberFestModal(false)}
       /> */}
+      <AnniversaryModal 
+        isOpen={showAnniversaryModal}
+        onClose={() => setShowAnniversaryModal(false)}
+      />
       <div>
         <ChatAssistant />
         <Header />
