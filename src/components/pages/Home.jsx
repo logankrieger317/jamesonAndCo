@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "../layout/Header";
 import Carousel from "../ui/Carousel";
 import Peoples from "../features/People";
@@ -6,7 +6,7 @@ import Reviews from "../ui/Reviews";
 import Footer from "../layout/Footer";
 import Map from "../ui/Map";
 import ChatAssistant from "../ui/ChatAssistant";
-import DogtoberFestModal from "../modals/DogtoberFestModal";
+import ThanksgivingModal from "../modals/ThanksgivingModal";
 import { trackBookNowClick } from '../../services/analytics';
 
 const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
@@ -66,20 +66,15 @@ const tiers = [
 
 const Home = () => {
   const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
-  // const [showDogtoberFestModal, setShowDogtoberFestModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   return (
     <>
-      {/* <OOOModal /> */}
-      {/* <FleaModal 
-        isOpen={showDiscountModal}
-        onClose={() => setShowDiscountModal(false)}
-      /> */}
-      {/* <DogtoberFestModal 
-        isOpen={showDogtoberFestModal}
-        onClose={() => setShowDogtoberFestModal(false)}
-      /> */}
       <div>
+        <ThanksgivingModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+        />
         <ChatAssistant />
         <Header />
 
