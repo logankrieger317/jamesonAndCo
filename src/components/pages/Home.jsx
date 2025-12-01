@@ -71,10 +71,7 @@ const Home = () => {
   return (
     <>
       <div>
-        <ThanksgivingModal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
-        />
+
         <ChatAssistant />
         <Header />
 
