@@ -1,0 +1,34 @@
+{
+  "campaigns": [
+    {
+      "id": "january-2024",
+      "name": "January 2024 - Booking System Update",
+      "file": "january-2024.md",
+      "month": "January",
+      "year": 2024,
+      "subject": "A Small Change That Makes Booking Much Easier",
+      "type": "announcement",
+      "targetAudience": "all_customers",
+      "personalizationVariables": [],
+      "status": "ready",
+      "scheduledDate": "2024-01-15"
+    },
+    {
+      "id": "february-2024",
+      "name": "February 2024 - Nutrition Education",
+      "file": "february-2024.md",
+      "month": "February",
+      "year": 2024,
+      "subject": "February is All About Love — Inside and Out",
+      "type": "educational",
+      "targetAudience": "all_customers",
+      "personalizationVariables": ["FirstName"],
+      "status": "ready",
+      "scheduledDate": "2024-02-01"
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2024-01-02",
+    "totalCampaigns": 2
+  }
+}
