@@ -1,5 +1,7 @@
 # Jameson & Co
 
+<!-- TEST: This is a test comment added via automated workflow -->
+
 A professional project repository for Jameson & Co.
 
 ## 🚀 Getting Started
