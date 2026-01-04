@@ -19,11 +19,13 @@ import Error from './components/pages/Error';
 import BlogPage from './components/blog/BlogPage';
 import Sales from './components/pages/Sales';
 import QRPoster from './components/ui/QRPoster';
+import BookingUpdateModal from './components/modals/BookingUpdateModal';
 import './App.css';
 
 function App() {
   return (
     <div>
+      <BookingUpdateModal />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
