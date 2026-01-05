@@ -25,7 +25,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <BookingUpdateModal />
+      {/* <BookingUpdateModal /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
