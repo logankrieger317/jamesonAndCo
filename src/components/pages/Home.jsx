@@ -76,10 +76,8 @@ const Home = () => {
         <Header />
 
         {/* Photo Section */}
-        <div className="relative mt-6 flex align-middle justify-center z-10 shadow-2xl ">
-          <div className=" max-w-xl max-h-xl ">
-            <Carousel />
-          </div>
+        <div className="relative mt-6 flex justify-center z-10 shadow-2xl">
+          <Carousel />
         </div>
 
         {/* Intro Block  */}
