@@ -7,9 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const sizes = [
-  { width: 640, suffix: 'sm' },   // Mobile
-  { width: 1024, suffix: 'md' },  // Tablet
-  { width: 1500, suffix: 'lg' }   // Desktop
+  { width: 640, suffix: 'sm', quality: 68 },   // Mobile - lower quality is fine on small screens
+  { width: 1024, suffix: 'md', quality: 72 },   // Tablet
+  { width: 1500, suffix: 'lg', quality: 72 }    // Desktop
 ];
 
 async function optimizeImages() {
@@ -40,8 +40,10 @@ async function optimizeImages() {
             fit: 'inside'
           })
           .webp({ 
-            quality: 80,
-            effort: 6 // Higher compression effort
+            quality: size.quality,
+            effort: 6,       // Higher compression effort
+            smartSubsample: true,  // Better chroma subsampling
+            nearLossless: false
           })
           .toFile(outputPath);
         

@@ -7,6 +7,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Preload first carousel image for each breakpoint so it loads before JS boots -->
+    <link rel="preload" as="image" type="image/webp" href="/img-cache/IMG_3288-lg.webp" media="(min-width: 1024px)" />
+    <link rel="preload" as="image" type="image/webp" href="/img-cache/IMG_3288-md.webp" media="(min-width: 640px) and (max-width: 1023px)" />
+    <link rel="preload" as="image" type="image/webp" href="/img-cache/IMG_3288-sm.webp" media="(max-width: 639px)" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="author" content="Jameson & Co" />
     <meta name="language" content="English" />
