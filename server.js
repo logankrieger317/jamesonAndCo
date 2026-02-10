@@ -37,7 +37,17 @@ const _cacheControl = (duration) => {
 // Image optimization middleware
 const optimizeImage = async (req, res, next) => {
   try {
-    const imagePath = join(__dirname, 'src/Images/optimized', req.params.image);
+    // Sanitize the image parameter to prevent path traversal attacks
+    const requestedImage = req.params.image;
+    const sanitizedImage = requestedImage.replace(/^(\.\.(\/|\\|$))+/g, '').replace(/\.\./g, '');
+    const imagePath = join(__dirname, 'src/Images/optimized', sanitizedImage);
+
+    // Verify the resolved path is within the allowed directory
+    const allowedDir = join(__dirname, 'src/Images/optimized');
+    if (!imagePath.startsWith(allowedDir)) {
+      return res.status(403).send('Forbidden');
+    }
+
     const imageBuffer = await fs.readFile(imagePath);
     
     // Get image dimensions

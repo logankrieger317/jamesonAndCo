@@ -65,6 +65,7 @@ const BookingSpecialModal = () => {
           <Button
             href="https://booking.moego.pet/ol/book?name=jamesonandcompanydoggrooming"
             target="_blank"
+            rel="noopener noreferrer"
             sx={{
               width: "100%",
               backgroundColor: "#ef4444",

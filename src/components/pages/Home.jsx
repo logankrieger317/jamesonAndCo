@@ -65,7 +65,6 @@ const tiers = [
 ];
 
 const Home = () => {
-  const bookingUrl = "https://booking.moego.pet/ol/JamesonandCompanyDogGrooming/book"
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   return (
